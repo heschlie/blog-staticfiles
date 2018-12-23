@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8" />
+<meta name="author" content="Stephen Schlie" />
+<meta name="description" content="Personal blog." />
+<meta name="keywords" content="blog, tech" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="generator" content="Hugo 0.48" />
+
+<link rel="canonical" href="https://blog.heschlie.com/post/2015/creating-apis-and-frameworks-no-code-just-talk/">
+<meta property="og:title" content="Creating APIs and frameworks (no code, just talk)" />
+<meta property="og:description" content="Well I&rsquo;ve settled into my position at Dell now, and am starting to finally make some real changes now. We use a scheduling and automation suite here from a 3rd party that is pretty awesome, at least from a users perspective. The administration side of it feels like an afterthought in comparison, and it might be as they have a fairly extensive API to bang against, but it is an XML-RPC API, and not even a standard one so I cannot use the Python XML-RPC libs to get the job done." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.heschlie.com/post/2015/creating-apis-and-frameworks-no-code-just-talk/" /><meta property="article:published_time" content="2015-08-20T06:43:13&#43;00:00"/>
+<meta property="article:modified_time" content="2015-08-20T06:43:13&#43;00:00"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Creating APIs and frameworks (no code, just talk)"/>
+<meta name="twitter:description" content="Well I&rsquo;ve settled into my position at Dell now, and am starting to finally make some real changes now. We use a scheduling and automation suite here from a 3rd party that is pretty awesome, at least from a users perspective. The administration side of it feels like an afterthought in comparison, and it might be as they have a fairly extensive API to bang against, but it is an XML-RPC API, and not even a standard one so I cannot use the Python XML-RPC libs to get the job done."/>
+
+
+
+<meta itemprop="name" content="Creating APIs and frameworks (no code, just talk)">
+<meta itemprop="description" content="Well I&rsquo;ve settled into my position at Dell now, and am starting to finally make some real changes now. We use a scheduling and automation suite here from a 3rd party that is pretty awesome, at least from a users perspective. The administration side of it feels like an afterthought in comparison, and it might be as they have a fairly extensive API to bang against, but it is an XML-RPC API, and not even a standard one so I cannot use the Python XML-RPC libs to get the job done.">
+
+
+<meta itemprop="datePublished" content="2015-08-20T06:43:13&#43;00:00" />
+<meta itemprop="dateModified" content="2015-08-20T06:43:13&#43;00:00" />
+<meta itemprop="wordCount" content="517">
+
+
+
+<meta itemprop="keywords" content="Personal,Python,Sysadmin," />
+
+
+<link rel="stylesheet" href="/css/layout.css" />
+<style type="text/css">
+body {
+  background-color: #262626;
+  color: #dbdbdb;
+}
+
+a { color: #dbdbdb; }
+
+pre {
+  background: #1D1F21;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+}
+
+code {
+  background: #1D1F21;
+}
+
+blockquote {
+  background: #1D1F21;
+  border-left: 3px solid #dbdbdb;
+}
+
+table {
+  margin: 1em auto;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid #dbdbdb;
+}
+
+th {
+  background: #dbdbdb;
+  color: #262626;
+}
+
+.siteTitle a { color: #99cc66; }
+
+.post .content h1{ color: #99cc66; }
+.post .content h2{ color: #99cc66; }
+.post .content h3{ color: #99cc66; }
+.post .content h4{ color: #99cc66; }
+.post .content h5{ color: #99cc66; }
+.post .content h6{ color: #99cc66; }
+.post .content a:hover { color: #99cc66; }
+.social-link:hover { color: #99cc66; }
+.nav-item-title:hover { color: #99cc66; }
+.tag a:hover { color: #99cc66; }
+.copyright { color: #404040 }
+.poweredby { color: #404040 }
+.poweredby a { color: #404040; }
+.post-preview .title a{ color: #99cc66; }
+.content-item a:hover{
+  text-decoration: underline;
+  color: #99cc66;
+}
+.post-list .title { color: #99cc66; }
+.rmore { color: #99cc66; }
+.terms .term a:hover {
+  text-decoration: underline;
+  color: #99cc66;
+}
+
+</style>
+
+
+
+<title>
+
+
+     Creating APIs and frameworks (no code, just talk) 
+
+</title>
+
+</head>
+
+
+<body>
+<div class="main">
+<header>
+
+<div class="header-bar">
+
+  <nav>
+    <div class="siteTitle">
+      <a href="https://blog.heschlie.com">The blog of Heschlie</a>
+    </div> 
+
+    
+    
+    <a class="nav-item" href="/post/"><div class="nav-item-title">Posts</div></a>
+    
+    <a class="nav-item" href="/tags/"><div class="nav-item-title">Tags</div></a>
+    
+
+  </nav>
+</div>
+
+  
+<div class="social-links-header">
+
+  
+  <a href="mailto:heschlie@gmail.com"><div class="social-link">email</div></a>
+  
+
+  
+  <a href="https://github.com/heschlie" target="_blank"><div class="social-link">gh</div></a>
+  
+
+  
+
+  
+  <a href="https://twitter.com/heschlie" target="_blank"><div class="social-link">twtr</div></a>
+  
+
+  
+  <a href="https://www.linkedin.com/in/heschlie" target="_blank"><div class="social-link">in</div></a>
+  
+
+</div>
+
+
+</header>
+
+
+<article class="post">
+    <h1 class="title"> Creating APIs and frameworks (no code, just talk) </h1>
+    <div class="content"> <p>Well I&rsquo;ve settled into my position at Dell now, and am starting to finally make some real changes now. We use a scheduling and automation suite here from a 3rd party that is pretty awesome, at least from a users perspective.  The administration side of it feels like an afterthought in comparison, and it might be as they have a fairly extensive API to bang against, but it is an <a href="https://en.wikipedia.org/wiki/XML-RPC">XML-RPC API</a>, and not even a standard one so I cannot use the Python XML-RPC libs to get the job done.  So I spent some time basically creating a giant wrapper that returns python objects instead of XML.  The idea here being to make it easier to create other types of automation using this wrapper.</p>
+
+<p>I created some classes that represent the different objects in our tool to hand back to the user so they can play with the data a bit easier.  Then I went on to create the wrapper itself, which was interesting as I had never worked with XML-RPC before.  Luckily I have worked with REST APIs a decent bit and the concept is similar enough.  As stated above I wasn&rsquo;t able to use the built in tools from Python, so I created some internal methods to assemble the URL, headers, and then call the appropriate procedure on the server with an XML document as the payload or data.  Then I started creating methods that reflected the servers API, parsed out the returned XML and gives the user back a Python object that represents the data that they can now play with!</p>
+
+<p>As I was saying, the admin interface is poor at best, it takes a long time to add resources and get them properly configured.  Which is sad because it is such a powerful tool otherwise.  We have found the current fastest way to add a device is to copy a similar one, and paste the new one in, then change all the meta-data associated with it.  This would be less of a pain if the UI were snappy and intuitive, but it is not.  One of my first tasks is to get my wrapper up to the point where I can make a tool that reads an Excel sheet (or csv as well), and creates the devices from that.  This will end up saving us man hours every week, and sometimes every day.  The next step will be for some automated configuration of the DUT (Device Under Test) that checks that the data we input was correct and sets up the device for us.</p>
+
+<p>Some of the next steps are going to require some better infrastructure as well, if you have read my previous posts then you&rsquo;ll know what I mean, and now those are in the works as well.  Once I have the infrastructure to back me up, the sky is the limit!  Or something like that anyway.  I&rsquo;ve got a lot of work ahead of me, and I&rsquo;m trying to do things right, creating unit tests for the stuff I create, and getting things into version control.  Wish me luck!</p>
+ </div>
+    <footer class="post-footer">
+
+  <div class="post-footer-data">
+    
+<div class="tags">
+    
+      <div class="tag">
+        <a href="/tags/personal">#Personal</a>
+      </div>
+    
+      <div class="tag">
+        <a href="/tags/python">#Python</a>
+      </div>
+    
+      <div class="tag">
+        <a href="/tags/sysadmin">#Sysadmin</a>
+      </div>
+    
+</div>
+
+    <div class="date"> Aug 20, 2015 </div>
+  </div>
+
+</footer>
+
+
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "blog-heschlie-com" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</article>
+
+  <footer>
+
+  <div class="social-links-footer">
+
+  
+  <a href="mailto:heschlie@gmail.com"><div class="social-link">Email</div></a>
+  
+
+  
+  <a href="https://github.com/heschlie" target="_blank"><div class="social-link">GitHub</div></a>
+  
+
+  
+
+  
+  <a href="https://twitter.com/heschlie" target="_blank"><div class="social-link">Twitter</div></a>
+  
+
+  
+  <a href="https://www.linkedin.com/in/heschlie" target="_blank"><div class="social-link">LinkedIn</div></a>
+  
+
+  <div class="social-link">
+  <a href="https://blog.heschlie.com/index.xml" target="_blank">RSS</a>
+  </div>
+
+</div>
+
+
+  <div class="copyright">  </div>
+
+  <div class="poweredby">
+    Powered by <a href="https://gohugo.io/">Hugo</a>.
+  </div>
+
+  </footer>
+
+</div> 
+
+</body>
+</html>
+

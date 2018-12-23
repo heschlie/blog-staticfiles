@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Wordpress on The blog of Heschlie</title>
+    <link>https://blog.heschlie.com/tags/wordpress/</link>
+    <description>Recent content in Wordpress on The blog of Heschlie</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 02 Feb 2017 20:48:58 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.heschlie.com/tags/wordpress/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>A new Blog!</title>
+      <link>https://blog.heschlie.com/post/2017/a-new-blog/</link>
+      <pubDate>Thu, 02 Feb 2017 20:48:58 +0000</pubDate>
+      
+      <guid>https://blog.heschlie.com/post/2017/a-new-blog/</guid>
+      <description>Prepare for a boring post about blog software!
+Heya Folks! I decided to try out a new blog software, I found myself wanting to write posts in something more MarkDown like, and Wordpress didn&amp;rsquo;t have very many good options for a MD editor with proper syntax highlighting. I&amp;rsquo;ve been writing a lot of MD for our git repos at Tigera, and code examples on Slack, and other places. I did some digging and came very close to grabbing Jekyll, but after some research I ended up landing on Hexo.</description>
+    </item>
+    
+  </channel>
+</rss>

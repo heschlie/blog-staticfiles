@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8" />
+<meta name="author" content="Stephen Schlie" />
+<meta name="description" content="Personal blog." />
+<meta name="keywords" content="blog, tech" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="generator" content="Hugo 0.48" />
+
+<link rel="canonical" href="https://blog.heschlie.com/post/2018/home-kubernetes-cluster-using-odroid-hc2-boards-part-2/">
+<meta property="og:title" content="Home Kubernetes Cluster Using ODROID HC2 Boards Part 2" />
+<meta property="og:description" content="Link to Part 1
+In this continuing series we&rsquo;re setting up the hardware and installing Ubuntu to the HC2s.
+Let&rsquo;s get building! Get everything unboxed, and find yourself oddly pleased with how well the cases snap together to form your nice new tower. You can see here what they look like stacked, and you can see the barrel plugs I need to tie into my power supply.
+I wired up the plugs to a single set of wires to make managing the easier." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.heschlie.com/post/2018/home-kubernetes-cluster-using-odroid-hc2-boards-part-2/" /><meta property="article:published_time" content="2018-02-16T16:27:19&#43;00:00"/>
+<meta property="article:modified_time" content="2018-02-16T16:27:19&#43;00:00"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Home Kubernetes Cluster Using ODROID HC2 Boards Part 2"/>
+<meta name="twitter:description" content="Link to Part 1
+In this continuing series we&rsquo;re setting up the hardware and installing Ubuntu to the HC2s.
+Let&rsquo;s get building! Get everything unboxed, and find yourself oddly pleased with how well the cases snap together to form your nice new tower. You can see here what they look like stacked, and you can see the barrel plugs I need to tie into my power supply.
+I wired up the plugs to a single set of wires to make managing the easier."/>
+
+
+
+<meta itemprop="name" content="Home Kubernetes Cluster Using ODROID HC2 Boards Part 2">
+<meta itemprop="description" content="Link to Part 1
+In this continuing series we&rsquo;re setting up the hardware and installing Ubuntu to the HC2s.
+Let&rsquo;s get building! Get everything unboxed, and find yourself oddly pleased with how well the cases snap together to form your nice new tower. You can see here what they look like stacked, and you can see the barrel plugs I need to tie into my power supply.
+I wired up the plugs to a single set of wires to make managing the easier.">
+
+
+<meta itemprop="datePublished" content="2018-02-16T16:27:19&#43;00:00" />
+<meta itemprop="dateModified" content="2018-02-16T16:27:19&#43;00:00" />
+<meta itemprop="wordCount" content="970">
+
+
+
+<meta itemprop="keywords" content="kubernetes,devops,cloud,home cloud,raspberry pi,rpi," />
+
+
+<link rel="stylesheet" href="/css/layout.css" />
+<style type="text/css">
+body {
+  background-color: #262626;
+  color: #dbdbdb;
+}
+
+a { color: #dbdbdb; }
+
+pre {
+  background: #1D1F21;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+}
+
+code {
+  background: #1D1F21;
+}
+
+blockquote {
+  background: #1D1F21;
+  border-left: 3px solid #dbdbdb;
+}
+
+table {
+  margin: 1em auto;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid #dbdbdb;
+}
+
+th {
+  background: #dbdbdb;
+  color: #262626;
+}
+
+.siteTitle a { color: #99cc66; }
+
+.post .content h1{ color: #99cc66; }
+.post .content h2{ color: #99cc66; }
+.post .content h3{ color: #99cc66; }
+.post .content h4{ color: #99cc66; }
+.post .content h5{ color: #99cc66; }
+.post .content h6{ color: #99cc66; }
+.post .content a:hover { color: #99cc66; }
+.social-link:hover { color: #99cc66; }
+.nav-item-title:hover { color: #99cc66; }
+.tag a:hover { color: #99cc66; }
+.copyright { color: #404040 }
+.poweredby { color: #404040 }
+.poweredby a { color: #404040; }
+.post-preview .title a{ color: #99cc66; }
+.content-item a:hover{
+  text-decoration: underline;
+  color: #99cc66;
+}
+.post-list .title { color: #99cc66; }
+.rmore { color: #99cc66; }
+.terms .term a:hover {
+  text-decoration: underline;
+  color: #99cc66;
+}
+
+</style>
+
+
+
+<title>
+
+
+     Home Kubernetes Cluster Using ODROID HC2 Boards Part 2 
+
+</title>
+
+</head>
+
+
+<body>
+<div class="main">
+<header>
+
+<div class="header-bar">
+
+  <nav>
+    <div class="siteTitle">
+      <a href="https://blog.heschlie.com">The blog of Heschlie</a>
+    </div> 
+
+    
+    
+    <a class="nav-item" href="/post/"><div class="nav-item-title">Posts</div></a>
+    
+    <a class="nav-item" href="/tags/"><div class="nav-item-title">Tags</div></a>
+    
+
+  </nav>
+</div>
+
+  
+<div class="social-links-header">
+
+  
+  <a href="mailto:heschlie@gmail.com"><div class="social-link">email</div></a>
+  
+
+  
+  <a href="https://github.com/heschlie" target="_blank"><div class="social-link">gh</div></a>
+  
+
+  
+
+  
+  <a href="https://twitter.com/heschlie" target="_blank"><div class="social-link">twtr</div></a>
+  
+
+  
+  <a href="https://www.linkedin.com/in/heschlie" target="_blank"><div class="social-link">in</div></a>
+  
+
+</div>
+
+
+</header>
+
+
+<article class="post">
+    <h1 class="title"> Home Kubernetes Cluster Using ODROID HC2 Boards Part 2 </h1>
+    <div class="content"> 
+
+<p>Link to <a href="/post/2018/home-kubernetes-cluster-using-odroid-hc2-boards-part-1">Part 1</a></p>
+
+<p>In this continuing series we&rsquo;re setting up the hardware and installing Ubuntu to the HC2s.</p>
+
+<h1 id="let-s-get-building">Let&rsquo;s get building!</h1>
+
+<p>Get everything unboxed, and find yourself oddly pleased with how well the cases snap together to form your nice new tower. You can see here what they look like stacked, and you can see the barrel plugs I need to tie into my power supply.</p>
+
+<p><img src="/images/Home-Kubernetes-Cluster-Using-ODROID-HC2-Boards-Part-2/stack-unplugged.jpg" alt="Unplugged stack" /></p>
+
+<p>I wired up the plugs to a single set of wires to make managing the easier. I just used a crimp and heat shrinked it to make it look nice, actually came out pretty good.</p>
+
+<p><img src="/images/Home-Kubernetes-Cluster-Using-ODROID-HC2-Boards-Part-2/completed-plug.jpg" alt="New plug for all nodes" /></p>
+
+<p>The power supply does not come with any plugs, so I harvested a cable from a computer power cord I had laying around. Just cut the end off, and crimp on some spade ends to screw into the power supply. This is mains wiring, if you are not comfortable with this, you may want to consider harvesting an old computer PSU, or just buying the bricks that ODROID sells.</p>
+
+<p><img src="/images/Home-Kubernetes-Cluster-Using-ODROID-HC2-Boards-Part-2/psu-terminals.jpg" alt="Terminals for power supply" /></p>
+
+<p>With all the power wires finished we can wire up the HC2s to the network, and fire it all up! This is what it looked like after all was said and done. I&rsquo;m still modeling a &ldquo;case&rdquo; to hold it together a bit better, and mount the PSU to the stack as well as some fans. You&rsquo;ll see some fans on it in a very janky setup here, it worked well enough to get me through the install.</p>
+
+<p><img src="/images/Home-Kubernetes-Cluster-Using-ODROID-HC2-Boards-Part-2/finished-setup.jpg" alt="All done with hardware" /></p>
+
+<p>I should note the fans aren&rsquo;t required, I just have a bunch of case fans from an old PC laying around and thought it would be good to put them to use.</p>
+
+<h1 id="install-ubuntu">Install Ubuntu</h1>
+
+<p>This part is pretty simple, you&rsquo;ll download the XU4 image (the HC2 and XU4 are the same platform) minimal install, flash it to a microSD card, boot it up. It is a slow process so be patient. This process may seem a little weird to you if you are not used to running a headless box, and haven&rsquo;t seen/used an unattended install before. Basically the image is already scripted to install itself once the system is booted up, but with no monitor, we have not way to sort out the networking via the HC2 and will need to use other means.</p>
+
+<ul>
+<li>Flash the image
+
+<ul>
+<li>Download the latest minimal image</li>
+<li><a href="https://wiki.odroid.com/odroid-xu4/os_images/linux/start">https://wiki.odroid.com/odroid-xu4/os_images/linux/start</a></li>
+<li>Flash it to a microSD card, I like <a href="https://etcher.io/">etcher</a> for this purpose</li>
+</ul></li>
+<li>Start the install
+
+<ul>
+<li>This step is tricky, so read carefully</li>
+<li>Insert the microSD into the HC2</li>
+<li>Power up the HC2</li>
+<li>Wait ~10 minutes</li>
+<li>Reboot the HC2</li>
+<li>OK it&rsquo;s actually really easy, I lied</li>
+</ul></li>
+<li>Sort out the networking
+
+<ul>
+<li>This step really is tricky depending on your home network, you will need to figure out what IP your DHCP server has assigned to the HC2</li>
+<li>I did this via my routers web interface, all of the HC2s came up with the name of odroid, I powered them up one at a time</li>
+<li>Alternatives might be nmap, angry IP scanner, or really any network scanning tools should work</li>
+<li>Assign IPs to the Nodes</li>
+<li>The Nodes should be setup to get the same IPs on every boot, you can statically assign the IPs, or in my case I set my router to only offer the same IP when it sees a MAC address</li>
+<li><a href="https://michael.mckinnon.id.au/2016/05/05/configuring-ubuntu-16-04-static-ip-address/">Ubuntu static IP assignment</a></li>
+</ul></li>
+</ul>
+
+<h1 id="post-os-install-steps">Post OS install steps</h1>
+
+<p>Here is a quick rundown of how to setup the OS and install Kubernetes, I link to other documentation where it makes sense. I&rsquo;d suggest reading all of the steps <strong>before</strong> doing anything as unwinding a borked Kubernetes install can be tedious.</p>
+
+<ul>
+<li>ssh into the Node <code>ssh root@$NODE_IP</code> password should be <code>odroid</code></li>
+<li>Change root password
+
+<ul>
+<li><code>passwd</code></li>
+<li>Follow prompts</li>
+</ul></li>
+<li>Update the OS
+
+<ul>
+<li><code>apt update &amp;&amp; apt upgrade &amp;&amp; apt install linux-image-xu3</code></li>
+</ul></li>
+<li>Install mDNS stuff
+
+<ul>
+<li><code>apt install avahi-daemon avahi-discover avahi-utils libnss-mdns mdns-scan</code></li>
+<li>Pick a hostname for the nodes</li>
+<li><code>hostnamectl set-hostname $YOUR_HOSTNAME</code></li>
+<li>Edit <code>/etc/hosts</code> and change the first line from <code>odroid</code> to the name you picked above</li>
+<li>Either reboot or run <code>hostname $YOUR_HOSTNAME</code></li>
+<li>This resets the prompt, I tend to reboot here just in case any of the updates from above require it</li>
+</ul></li>
+<li>Install Docker CE
+
+<ul>
+<li>Their docs are quite good, follow steps for <code>armhf</code> when you install a repository</li>
+<li><a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/">https://docs.docker.com/install/linux/docker-ce/ubuntu/</a></li>
+</ul></li>
+</ul>
+
+<h1 id="install-kubernetes-via-kubeadm">Install Kubernetes via kubeadm</h1>
+
+<p>This was going to be included above, but it got a bit long for a list, so now it is two lists. Again as with the steps above read all of the steps before proceeding!</p>
+
+<ul>
+<li>Again the docs here are quite good, so follow the kubeadm guide, but here are some notes that you should follow if you want to mimic my setup</li>
+<li><a href="https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/">kubeadm install docs</a></li>
+<li>I am using flannel for my pod networking, I would normally choose Calico but they aren&rsquo;t available on ARM as of this posting, use the following command to install flannel after doing <code>kubeadm init --pod-network-cidr 10.244.0.0/16</code> on the master</li>
+<li><code>curl -sSL https://rawgit.com/coreos/flannel/v0.10.0/Documentation/kube-flannel.yml | sed &quot;s/amd64/arm/g&quot; | kubectl create -f -</code>
+
+<ul>
+<li>Replace <code>v0.10.0</code> with another version if you wish, this was the latest at the time of writing this</li>
+<li>This deploys flannel as a daemonset, which means it will be automatically deployed on new Nodes</li>
+</ul></li>
+<li>Setup access to Kubernetes cluster
+
+<ul>
+<li>You&rsquo;ll want to be able to access your cluster from your own machine, not from the master every time</li>
+<li><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">Install kubectl</a></li>
+<li>Copy the kubeconfig from the master to your personal machine, and use the <code>--kubeconfig</code> option of kubectl to point to your cluster</li>
+<li><code>scp root@k8s-master.local:/etc/kubernetes/admin.conf .</code></li>
+<li><code>kubectl --kubeconfig=admin.conf get node</code></li>
+</ul></li>
+</ul>
+
+<h1 id="wrapping-it-up">Wrapping it up</h1>
+
+<p>That&rsquo;s it, you&rsquo;ve now got Kubernetes installed on your own little cluster! Go deploy something on it! I&rsquo;ll be doing one more blog post where I migrate my <a href="https://twitter.com/dexhorthy/status/856639005462417409">blog to Kubernetes</a>. I plan to include as much detail as I can about connecting services to the outside world.</p>
+ </div>
+    <footer class="post-footer">
+
+  <div class="post-footer-data">
+    
+<div class="tags">
+    
+      <div class="tag">
+        <a href="/tags/kubernetes">#kubernetes</a>
+      </div>
+    
+      <div class="tag">
+        <a href="/tags/devops">#devops</a>
+      </div>
+    
+      <div class="tag">
+        <a href="/tags/cloud">#cloud</a>
+      </div>
+    
+      <div class="tag">
+        <a href="/tags/home-cloud">#home cloud</a>
+      </div>
+    
+      <div class="tag">
+        <a href="/tags/raspberry-pi">#raspberry pi</a>
+      </div>
+    
+      <div class="tag">
+        <a href="/tags/rpi">#rpi</a>
+      </div>
+    
+</div>
+
+    <div class="date"> Feb 16, 2018 </div>
+  </div>
+
+</footer>
+
+
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "blog-heschlie-com" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</article>
+
+  <footer>
+
+  <div class="social-links-footer">
+
+  
+  <a href="mailto:heschlie@gmail.com"><div class="social-link">Email</div></a>
+  
+
+  
+  <a href="https://github.com/heschlie" target="_blank"><div class="social-link">GitHub</div></a>
+  
+
+  
+
+  
+  <a href="https://twitter.com/heschlie" target="_blank"><div class="social-link">Twitter</div></a>
+  
+
+  
+  <a href="https://www.linkedin.com/in/heschlie" target="_blank"><div class="social-link">LinkedIn</div></a>
+  
+
+  <div class="social-link">
+  <a href="https://blog.heschlie.com/index.xml" target="_blank">RSS</a>
+  </div>
+
+</div>
+
+
+  <div class="copyright">  </div>
+
+  <div class="poweredby">
+    Powered by <a href="https://gohugo.io/">Hugo</a>.
+  </div>
+
+  </footer>
+
+</div> 
+
+</body>
+</html>
+

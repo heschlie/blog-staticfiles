@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on The blog of Heschlie</title>
+    <link>https://blog.heschlie.com/tags/python/</link>
+    <description>Recent content in Python on The blog of Heschlie</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 20 Aug 2015 06:43:13 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.heschlie.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Creating APIs and frameworks (no code, just talk)</title>
+      <link>https://blog.heschlie.com/post/2015/creating-apis-and-frameworks-no-code-just-talk/</link>
+      <pubDate>Thu, 20 Aug 2015 06:43:13 +0000</pubDate>
+      
+      <guid>https://blog.heschlie.com/post/2015/creating-apis-and-frameworks-no-code-just-talk/</guid>
+      <description>Well I&amp;rsquo;ve settled into my position at Dell now, and am starting to finally make some real changes now. We use a scheduling and automation suite here from a 3rd party that is pretty awesome, at least from a users perspective. The administration side of it feels like an afterthought in comparison, and it might be as they have a fairly extensive API to bang against, but it is an XML-RPC API, and not even a standard one so I cannot use the Python XML-RPC libs to get the job done.</description>
+    </item>
+    
+    <item>
+      <title>Tinkering with Battlenets REST API</title>
+      <link>https://blog.heschlie.com/post/2015/tinkering-with-battlenets-rest-api/</link>
+      <pubDate>Thu, 26 Mar 2015 17:23:19 +0000</pubDate>
+      
+      <guid>https://blog.heschlie.com/post/2015/tinkering-with-battlenets-rest-api/</guid>
+      <description>So a couple years ago I started teaching myself programming, there was a lot of bumps along the way, and knowing what I know now I probably would have done things much differently, but isn&amp;rsquo;t that always the case. Anyway, back then I started with Python and Perl as they were relevant to what I was trying to do in my sysadmin work, but quickly branched out to Java, C/C++, and tinkered in some other languages.</description>
+    </item>
+    
+  </channel>
+</rss>

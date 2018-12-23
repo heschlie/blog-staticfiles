@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8" />
+<meta name="author" content="Stephen Schlie" />
+<meta name="description" content="Personal blog." />
+<meta name="keywords" content="blog, tech" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="generator" content="Hugo 0.48" />
+
+<link rel="canonical" href="https://blog.heschlie.com/post/2016/entering-the-3d-printing-world-and-a-small-rant-about-simplify3d/">
+<meta property="og:title" content="Entering the 3D printing world (and a small rant about Simplify3d)" />
+<meta property="og:description" content="So I recently entered into the amazing world of 3D printing, my wife bought me an Ultimaker 2&#43; for my birthday this year! It has been a fascinating experience and a whole can of worms I never even knew existed. I will say, the Ultimaker series is supposed to be the most &ldquo;plug it in and print&rdquo; printer out there (or at least among the top in that group) but there was still quite a learning curve and there was a lot of tuning involved." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.heschlie.com/post/2016/entering-the-3d-printing-world-and-a-small-rant-about-simplify3d/" /><meta property="article:published_time" content="2016-12-25T22:15:05&#43;00:00"/>
+<meta property="article:modified_time" content="2016-12-25T22:15:05&#43;00:00"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Entering the 3D printing world (and a small rant about Simplify3d)"/>
+<meta name="twitter:description" content="So I recently entered into the amazing world of 3D printing, my wife bought me an Ultimaker 2&#43; for my birthday this year! It has been a fascinating experience and a whole can of worms I never even knew existed. I will say, the Ultimaker series is supposed to be the most &ldquo;plug it in and print&rdquo; printer out there (or at least among the top in that group) but there was still quite a learning curve and there was a lot of tuning involved."/>
+
+
+
+<meta itemprop="name" content="Entering the 3D printing world (and a small rant about Simplify3d)">
+<meta itemprop="description" content="So I recently entered into the amazing world of 3D printing, my wife bought me an Ultimaker 2&#43; for my birthday this year! It has been a fascinating experience and a whole can of worms I never even knew existed. I will say, the Ultimaker series is supposed to be the most &ldquo;plug it in and print&rdquo; printer out there (or at least among the top in that group) but there was still quite a learning curve and there was a lot of tuning involved.">
+
+
+<meta itemprop="datePublished" content="2016-12-25T22:15:05&#43;00:00" />
+<meta itemprop="dateModified" content="2016-12-25T22:15:05&#43;00:00" />
+<meta itemprop="wordCount" content="902">
+
+
+
+<meta itemprop="keywords" content="3d printing,cura,simplify3d,slicer,ultimaker," />
+
+
+<link rel="stylesheet" href="/css/layout.css" />
+<style type="text/css">
+body {
+  background-color: #262626;
+  color: #dbdbdb;
+}
+
+a { color: #dbdbdb; }
+
+pre {
+  background: #1D1F21;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+}
+
+code {
+  background: #1D1F21;
+}
+
+blockquote {
+  background: #1D1F21;
+  border-left: 3px solid #dbdbdb;
+}
+
+table {
+  margin: 1em auto;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid #dbdbdb;
+}
+
+th {
+  background: #dbdbdb;
+  color: #262626;
+}
+
+.siteTitle a { color: #99cc66; }
+
+.post .content h1{ color: #99cc66; }
+.post .content h2{ color: #99cc66; }
+.post .content h3{ color: #99cc66; }
+.post .content h4{ color: #99cc66; }
+.post .content h5{ color: #99cc66; }
+.post .content h6{ color: #99cc66; }
+.post .content a:hover { color: #99cc66; }
+.social-link:hover { color: #99cc66; }
+.nav-item-title:hover { color: #99cc66; }
+.tag a:hover { color: #99cc66; }
+.copyright { color: #404040 }
+.poweredby { color: #404040 }
+.poweredby a { color: #404040; }
+.post-preview .title a{ color: #99cc66; }
+.content-item a:hover{
+  text-decoration: underline;
+  color: #99cc66;
+}
+.post-list .title { color: #99cc66; }
+.rmore { color: #99cc66; }
+.terms .term a:hover {
+  text-decoration: underline;
+  color: #99cc66;
+}
+
+</style>
+
+
+
+<title>
+
+
+     Entering the 3D printing world (and a small rant about Simplify3d) 
+
+</title>
+
+</head>
+
+
+<body>
+<div class="main">
+<header>
+
+<div class="header-bar">
+
+  <nav>
+    <div class="siteTitle">
+      <a href="https://blog.heschlie.com">The blog of Heschlie</a>
+    </div> 
+
+    
+    
+    <a class="nav-item" href="/post/"><div class="nav-item-title">Posts</div></a>
+    
+    <a class="nav-item" href="/tags/"><div class="nav-item-title">Tags</div></a>
+    
+
+  </nav>
+</div>
+
+  
+<div class="social-links-header">
+
+  
+  <a href="mailto:heschlie@gmail.com"><div class="social-link">email</div></a>
+  
+
+  
+  <a href="https://github.com/heschlie" target="_blank"><div class="social-link">gh</div></a>
+  
+
+  
+
+  
+  <a href="https://twitter.com/heschlie" target="_blank"><div class="social-link">twtr</div></a>
+  
+
+  
+  <a href="https://www.linkedin.com/in/heschlie" target="_blank"><div class="social-link">in</div></a>
+  
+
+</div>
+
+
+</header>
+
+
+<article class="post">
+    <h1 class="title"> Entering the 3D printing world (and a small rant about Simplify3d) </h1>
+    <div class="content"> <p>So I recently entered into the amazing world of 3D printing, my wife bought me an Ultimaker 2+ for my birthday this year!  It has been a fascinating experience and a whole can of worms I never even knew existed.  I will say, the Ultimaker series is supposed to be the most &ldquo;plug it in and print&rdquo; printer out there (or at least among the top in that group) but there was still quite a learning curve and there was a lot of tuning involved.  This world if definitely not ready for non-tinkerers as getting things setup well takes patience and perseverance.  Once you have dialed it in, and are used to tuning and fixing issues it is a very, very fun ride.</p>
+
+<p>The Ultimaker series printers are built by the folks who maintain the open source slicer Cura (the program that translates your 3d models into a file the printer can read) and thus the start you out using that slicer.  It is quite good and eases you into tuning the printer by only exposing the most important settings to you, and a few more in their advanced view, and hiding away some of the more complex settings by making you enable them in the preferences.  I was able to get some pretty decent prints out of it, and used it for quite awhile.  I did eventually find that Cura left some things to be desired.  With it slicing the models every time you move it the process was slow.  I also found the default settings were not optimal, and the built in bed leveling (this is on the Ultimaker) left something to be desired.  There are plenty of free slicers out there, but I decided to go for the gusto and bought Simplify3d.</p>
+
+<p>Immediately I was greeted with more settings, smarter model healing (closing gaps) and much, much better support placement.  S3D also has a better bed leveling run than the printer default, and you are able to control much more of the printer from their application.  Now I have not tried many of the other slicers out there, so take my words with a grain of salt, but S3D immediately helped me get a better understanding of how the printer was working, what it planned to do at each layer, and much greater per layer control over my printer and generated gcode files than Cura could.  Overall I would say it has been worth the cost, though I do wish it let me register more than 2 machines (I currently have 2 desktops, my primary machine and the one I keep next to the printer, and my laptop) without purchasing more than one license, but such is life in the closed source world.</p>
+
+<p>If you are thinking of getting into the world of 3D printing, and are a tinkerer, I would highly recommend it!  Though there are a lot of far more affordable printers out there.  The most highly recommended starter printer is the Prusa i3 MK2, which goes for about $700 for the build kit and ~$1000 for the pre-built unit.  I believe you can find knock offs for about half the price, if you look hard enough.</p>
+
+<p>I will end this post with a complaint about Simplify3d though, and this may only apply to a small percentage of users anyway (Linux only) is that their Linux install leaves a lot to be desired.  It does not put a script or binary in a commonly executeable path, and you need to launch the application from the directory it was installed in.  This is inconvenient, and while I much prefer the CLI for most things, if I am launching an application frequently I&rsquo;d prefer it to be on the bar somewhere.  So I&rsquo;ll give you my process for getting it running.</p>
+
+<ul>
+<li>First download and run their normal installer (this guide assumes you install to the default location)</li>
+<li>Go into the install directory0
+
+<ul>
+<li><code>cd /opt/Simplify3D-3.1.1</code></li>
+<li>Replace -3.1.1 with your version of S3D</li>
+</ul></li>
+<li>Run the <code>AddUserPermissions.sh</code> script with sudo, or type in your password when prompted
+
+<ul>
+<li>Note, that this does some not very awesome things, it creates some root owned directories, and sets them to <code>777</code>, you should go though and fix this with the following commands</li>
+<li><code>
+sudo chown -R $USER:$USER $HOME/.local/share/Simplify3D
+sudo chmod go-w $HOME/.local/share/Simplify3D
+sudo chown -R $USER:$USER $HOME/.config/Simplify3D
+sudo chmod go-w $HOME/.config/Simplify3D
+</code></li>
+</ul></li>
+<li>Create a file called s3d in <code>/home/$USER/bin</code> with the following contents
+
+<ul>
+<li>$USER is your username, you might need to create the bin directory</li>
+<li><code>bash
+#!/bin/bash
+cd /opt/Simplify3D-3.1.1 # Replace 3.1.1 with your version
+./LaunchScript.sh
+</code></li>
+</ul></li>
+<li>As root create a launcher file (Ubuntu) for the Unity launcher
+
+<ul>
+<li><code>vim /usr/share/applications/s3d.desktop</code></li>
+<li><code>bash
+[Desktop Entry]
+Type=Application
+Terminal=false
+Name=Simplify3d
+Icon=/opt/Simplify3D-3.1.1/icon.png
+Exec=/home/$USER/bin/s3d
+</code></li>
+<li>Again replacing 3.1.1 with your version, and $USER with your username</li>
+</ul></li>
+<li>Open a file explorer window and navigate to <code>/usr/share/applications/</code></li>
+<li>Find the s3d.desktop file, and drag it to the Unity launcher.</li>
+<li>Voila!  You can now launch s3d from the Unity launcher like it is a real application!</li>
+</ul>
+
+<p>I would probably recommend that instead of having the version hardcoded like above you should create a symlink called <code>Simplify3D</code> with no version in it that links to the currently installed version, so you can have more than one installed and switch back and forth by just pointing the symlink at a different directory, and then change the above files by removing the version (e.g. <code>-3.1.1</code>) from them and pointing them at the symlink.</p>
+ </div>
+    <footer class="post-footer">
+
+  <div class="post-footer-data">
+    
+<div class="tags">
+    
+      <div class="tag">
+        <a href="/tags/3d-printing">#3d printing</a>
+      </div>
+    
+      <div class="tag">
+        <a href="/tags/cura">#cura</a>
+      </div>
+    
+      <div class="tag">
+        <a href="/tags/simplify3d">#simplify3d</a>
+      </div>
+    
+      <div class="tag">
+        <a href="/tags/slicer">#slicer</a>
+      </div>
+    
+      <div class="tag">
+        <a href="/tags/ultimaker">#ultimaker</a>
+      </div>
+    
+</div>
+
+    <div class="date"> Dec 25, 2016 </div>
+  </div>
+
+</footer>
+
+
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "blog-heschlie-com" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</article>
+
+  <footer>
+
+  <div class="social-links-footer">
+
+  
+  <a href="mailto:heschlie@gmail.com"><div class="social-link">Email</div></a>
+  
+
+  
+  <a href="https://github.com/heschlie" target="_blank"><div class="social-link">GitHub</div></a>
+  
+
+  
+
+  
+  <a href="https://twitter.com/heschlie" target="_blank"><div class="social-link">Twitter</div></a>
+  
+
+  
+  <a href="https://www.linkedin.com/in/heschlie" target="_blank"><div class="social-link">LinkedIn</div></a>
+  
+
+  <div class="social-link">
+  <a href="https://blog.heschlie.com/index.xml" target="_blank">RSS</a>
+  </div>
+
+</div>
+
+
+  <div class="copyright">  </div>
+
+  <div class="poweredby">
+    Powered by <a href="https://gohugo.io/">Hugo</a>.
+  </div>
+
+  </footer>
+
+</div> 
+
+</body>
+</html>
+

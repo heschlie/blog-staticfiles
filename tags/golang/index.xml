@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Golang on The blog of Heschlie</title>
+    <link>https://blog.heschlie.com/tags/golang/</link>
+    <description>Recent content in Golang on The blog of Heschlie</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 28 Sep 2018 22:51:42 -0700</lastBuildDate>
+    
+	<atom:link href="https://blog.heschlie.com/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Trying Out Hugo</title>
+      <link>https://blog.heschlie.com/post/2018/trying-out-hugo/</link>
+      <pubDate>Fri, 28 Sep 2018 22:51:42 -0700</pubDate>
+      
+      <guid>https://blog.heschlie.com/post/2018/trying-out-hugo/</guid>
+      <description>Trying out Hugo for the blog Well I have had my eye on Hugo, a static site generator for some time now. It is written in Go, supports markdown, has a rich theme system, and as it says it generates html you can just drop in for nginx or whatever your webserver happens to be.
+I&amp;rsquo;ve been using hexo for some time now, and it has worked quite well, but I&amp;rsquo;m not fond of managing the Node dependencies, and I don&amp;rsquo;t know Javascript all too well so I wanted something that was both open source and written in a language I knew and could more easily contribute to.</description>
+    </item>
+    
+  </channel>
+</rss>

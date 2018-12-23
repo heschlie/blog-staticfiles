@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Slicer on The blog of Heschlie</title>
+    <link>https://blog.heschlie.com/tags/slicer/</link>
+    <description>Recent content in Slicer on The blog of Heschlie</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 25 Dec 2016 22:15:05 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.heschlie.com/tags/slicer/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Entering the 3D printing world (and a small rant about Simplify3d)</title>
+      <link>https://blog.heschlie.com/post/2016/entering-the-3d-printing-world-and-a-small-rant-about-simplify3d/</link>
+      <pubDate>Sun, 25 Dec 2016 22:15:05 +0000</pubDate>
+      
+      <guid>https://blog.heschlie.com/post/2016/entering-the-3d-printing-world-and-a-small-rant-about-simplify3d/</guid>
+      <description>So I recently entered into the amazing world of 3D printing, my wife bought me an Ultimaker 2+ for my birthday this year! It has been a fascinating experience and a whole can of worms I never even knew existed. I will say, the Ultimaker series is supposed to be the most &amp;ldquo;plug it in and print&amp;rdquo; printer out there (or at least among the top in that group) but there was still quite a learning curve and there was a lot of tuning involved.</description>
+    </item>
+    
+  </channel>
+</rss>

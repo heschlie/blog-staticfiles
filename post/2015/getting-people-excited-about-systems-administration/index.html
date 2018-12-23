@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8" />
+<meta name="author" content="Stephen Schlie" />
+<meta name="description" content="Personal blog." />
+<meta name="keywords" content="blog, tech" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="generator" content="Hugo 0.48" />
+
+<link rel="canonical" href="https://blog.heschlie.com/post/2015/getting-people-excited-about-systems-administration/">
+<meta property="og:title" content="Getting people excited about systems administration" />
+<meta property="og:description" content="Some time back I lent a friend a book on Java programming, with the hopes that he would pick it up and eventually lend us a hand with our games. He did enjoy it, went through the standard hazings that you do as a programmer, getting SDKs setup, environmental variables registered, learning how important a semicolon is, and so on. Not too long after my manager started talking about that we wanted to open a Junior position on the team." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.heschlie.com/post/2015/getting-people-excited-about-systems-administration/" /><meta property="article:published_time" content="2015-03-30T14:09:15&#43;00:00"/>
+<meta property="article:modified_time" content="2015-03-30T14:09:15&#43;00:00"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Getting people excited about systems administration"/>
+<meta name="twitter:description" content="Some time back I lent a friend a book on Java programming, with the hopes that he would pick it up and eventually lend us a hand with our games. He did enjoy it, went through the standard hazings that you do as a programmer, getting SDKs setup, environmental variables registered, learning how important a semicolon is, and so on. Not too long after my manager started talking about that we wanted to open a Junior position on the team."/>
+
+
+
+<meta itemprop="name" content="Getting people excited about systems administration">
+<meta itemprop="description" content="Some time back I lent a friend a book on Java programming, with the hopes that he would pick it up and eventually lend us a hand with our games. He did enjoy it, went through the standard hazings that you do as a programmer, getting SDKs setup, environmental variables registered, learning how important a semicolon is, and so on. Not too long after my manager started talking about that we wanted to open a Junior position on the team.">
+
+
+<meta itemprop="datePublished" content="2015-03-30T14:09:15&#43;00:00" />
+<meta itemprop="dateModified" content="2015-03-30T14:09:15&#43;00:00" />
+<meta itemprop="wordCount" content="585">
+
+
+
+<meta itemprop="keywords" content="Sysadmin," />
+
+
+<link rel="stylesheet" href="/css/layout.css" />
+<style type="text/css">
+body {
+  background-color: #262626;
+  color: #dbdbdb;
+}
+
+a { color: #dbdbdb; }
+
+pre {
+  background: #1D1F21;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+}
+
+code {
+  background: #1D1F21;
+}
+
+blockquote {
+  background: #1D1F21;
+  border-left: 3px solid #dbdbdb;
+}
+
+table {
+  margin: 1em auto;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid #dbdbdb;
+}
+
+th {
+  background: #dbdbdb;
+  color: #262626;
+}
+
+.siteTitle a { color: #99cc66; }
+
+.post .content h1{ color: #99cc66; }
+.post .content h2{ color: #99cc66; }
+.post .content h3{ color: #99cc66; }
+.post .content h4{ color: #99cc66; }
+.post .content h5{ color: #99cc66; }
+.post .content h6{ color: #99cc66; }
+.post .content a:hover { color: #99cc66; }
+.social-link:hover { color: #99cc66; }
+.nav-item-title:hover { color: #99cc66; }
+.tag a:hover { color: #99cc66; }
+.copyright { color: #404040 }
+.poweredby { color: #404040 }
+.poweredby a { color: #404040; }
+.post-preview .title a{ color: #99cc66; }
+.content-item a:hover{
+  text-decoration: underline;
+  color: #99cc66;
+}
+.post-list .title { color: #99cc66; }
+.rmore { color: #99cc66; }
+.terms .term a:hover {
+  text-decoration: underline;
+  color: #99cc66;
+}
+
+</style>
+
+
+
+<title>
+
+
+     Getting people excited about systems administration 
+
+</title>
+
+</head>
+
+
+<body>
+<div class="main">
+<header>
+
+<div class="header-bar">
+
+  <nav>
+    <div class="siteTitle">
+      <a href="https://blog.heschlie.com">The blog of Heschlie</a>
+    </div> 
+
+    
+    
+    <a class="nav-item" href="/post/"><div class="nav-item-title">Posts</div></a>
+    
+    <a class="nav-item" href="/tags/"><div class="nav-item-title">Tags</div></a>
+    
+
+  </nav>
+</div>
+
+  
+<div class="social-links-header">
+
+  
+  <a href="mailto:heschlie@gmail.com"><div class="social-link">email</div></a>
+  
+
+  
+  <a href="https://github.com/heschlie" target="_blank"><div class="social-link">gh</div></a>
+  
+
+  
+
+  
+  <a href="https://twitter.com/heschlie" target="_blank"><div class="social-link">twtr</div></a>
+  
+
+  
+  <a href="https://www.linkedin.com/in/heschlie" target="_blank"><div class="social-link">in</div></a>
+  
+
+</div>
+
+
+</header>
+
+
+<article class="post">
+    <h1 class="title"> Getting people excited about systems administration </h1>
+    <div class="content"> <p>Some time back I lent a friend a book on Java programming, with the hopes that he would pick it up and eventually lend us a hand with our games.  He did enjoy it, went through the standard hazings that you do as a programmer, getting SDKs setup, environmental variables registered, learning how important a semicolon is, and so on.  Not too long after my manager started talking about that we wanted to open a Junior position on the team.  I thought this would be a great opportunity for this friend, so I started getting him excited about Linux, as we use it almost exclusively in our environment, and the position required no experience.</p>
+
+<p>I gave him an old but decent machine, told him to download Centos and install it then report back to me once it was done.  It is amazing how simple it is to install a distro nowadays.  He got it up and running and, like most of us when we first picked this up, had almost no idea what to do with it.  Great!  He thought, I&rsquo;ve got this amazingly awesome power in front of me with no idea how to wield it!  He got some of the basic stuff setup like SSH, and mounted the 2nd hdd and popped it into fstab so it was mounted on each boot.  So to get him started with something that I&rsquo;ve always thought was cool and to most people quite intimidating from the outside, virtualization!</p>
+
+<p>We spent an evening on Hangouts with a screen share going so I could help him get KVM installed on his shiny new Centos box, and helped him install an Ubuntu VM, then after it was up we removed it and I let him go to town.  IIRC he installed Debian, Centos, Ubuntu, and tried to install Gentoo, but apparently Gentoo is not ok with being headless immediately and you need to use a Framebuffer and enable SSH to get started, Gentoo 1 - Friend 0 there.  Time went by and he picked up some networking and linux books and used that machine as his sandbox, but I knew if I pointed him in the right direction he would start rolling with things.</p>
+
+<p>So I sent him a task one day, I told him I want a working LAMP stack installed on that machine!  And sent him the wikipedia link for what a LAMP stack is and within a couple of hours he was successful.  Damn that was too easy&hellip; OK go and install a CMS! And yet again he was back to me within the hour with Wordpress up and running, the correct firewall rules in place to allow HTTP, and even a port forward on his home router to let me verify that it was working.  I am still working on the next task for him now, if anyone has a suggestion pass it along!  I am thinking to stick to relatively easy stuff, that applies to real world situations, like getting BIND9 installed and working, or maybe setup Samba, that one is always fun with getting permissions down right for creation and deletion.</p>
+
+<p>Overall though I was just glad to see that he was excited about this, and has put so much effort into it.  We&rsquo;re still working on opening this position, but he has started working on a resume and cover letters, so if anyone needs some fresh meat who is smart and inquisitive let me know and I&rsquo;ll pass along his contact info.</p>
+ </div>
+    <footer class="post-footer">
+
+  <div class="post-footer-data">
+    
+<div class="tags">
+    
+      <div class="tag">
+        <a href="/tags/sysadmin">#Sysadmin</a>
+      </div>
+    
+</div>
+
+    <div class="date"> Mar 30, 2015 </div>
+  </div>
+
+</footer>
+
+
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "blog-heschlie-com" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</article>
+
+  <footer>
+
+  <div class="social-links-footer">
+
+  
+  <a href="mailto:heschlie@gmail.com"><div class="social-link">Email</div></a>
+  
+
+  
+  <a href="https://github.com/heschlie" target="_blank"><div class="social-link">GitHub</div></a>
+  
+
+  
+
+  
+  <a href="https://twitter.com/heschlie" target="_blank"><div class="social-link">Twitter</div></a>
+  
+
+  
+  <a href="https://www.linkedin.com/in/heschlie" target="_blank"><div class="social-link">LinkedIn</div></a>
+  
+
+  <div class="social-link">
+  <a href="https://blog.heschlie.com/index.xml" target="_blank">RSS</a>
+  </div>
+
+</div>
+
+
+  <div class="copyright">  </div>
+
+  <div class="poweredby">
+    Powered by <a href="https://gohugo.io/">Hugo</a>.
+  </div>
+
+  </footer>
+
+</div> 
+
+</body>
+</html>
+

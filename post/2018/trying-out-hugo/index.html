@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8" />
+<meta name="author" content="Stephen Schlie" />
+<meta name="description" content="Personal blog." />
+<meta name="keywords" content="blog, tech" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="generator" content="Hugo 0.48" />
+
+<link rel="canonical" href="https://blog.heschlie.com/post/2018/trying-out-hugo/">
+<meta property="og:title" content="Trying Out Hugo" />
+<meta property="og:description" content="Trying out Hugo for the blog Well I have had my eye on Hugo, a static site generator for some time now. It is written in Go, supports markdown, has a rich theme system, and as it says it generates html you can just drop in for nginx or whatever your webserver happens to be.
+I&rsquo;ve been using hexo for some time now, and it has worked quite well, but I&rsquo;m not fond of managing the Node dependencies, and I don&rsquo;t know Javascript all too well so I wanted something that was both open source and written in a language I knew and could more easily contribute to." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.heschlie.com/post/2018/trying-out-hugo/" /><meta property="article:published_time" content="2018-09-28T22:51:42-07:00"/>
+<meta property="article:modified_time" content="2018-09-28T22:51:42-07:00"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Trying Out Hugo"/>
+<meta name="twitter:description" content="Trying out Hugo for the blog Well I have had my eye on Hugo, a static site generator for some time now. It is written in Go, supports markdown, has a rich theme system, and as it says it generates html you can just drop in for nginx or whatever your webserver happens to be.
+I&rsquo;ve been using hexo for some time now, and it has worked quite well, but I&rsquo;m not fond of managing the Node dependencies, and I don&rsquo;t know Javascript all too well so I wanted something that was both open source and written in a language I knew and could more easily contribute to."/>
+
+
+
+<meta itemprop="name" content="Trying Out Hugo">
+<meta itemprop="description" content="Trying out Hugo for the blog Well I have had my eye on Hugo, a static site generator for some time now. It is written in Go, supports markdown, has a rich theme system, and as it says it generates html you can just drop in for nginx or whatever your webserver happens to be.
+I&rsquo;ve been using hexo for some time now, and it has worked quite well, but I&rsquo;m not fond of managing the Node dependencies, and I don&rsquo;t know Javascript all too well so I wanted something that was both open source and written in a language I knew and could more easily contribute to.">
+
+
+<meta itemprop="datePublished" content="2018-09-28T22:51:42-07:00" />
+<meta itemprop="dateModified" content="2018-09-28T22:51:42-07:00" />
+<meta itemprop="wordCount" content="732">
+
+
+
+<meta itemprop="keywords" content="blog,Go,golang,hexo,hugo," />
+
+
+<link rel="stylesheet" href="/css/layout.css" />
+<style type="text/css">
+body {
+  background-color: #262626;
+  color: #dbdbdb;
+}
+
+a { color: #dbdbdb; }
+
+pre {
+  background: #1D1F21;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+}
+
+code {
+  background: #1D1F21;
+}
+
+blockquote {
+  background: #1D1F21;
+  border-left: 3px solid #dbdbdb;
+}
+
+table {
+  margin: 1em auto;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid #dbdbdb;
+}
+
+th {
+  background: #dbdbdb;
+  color: #262626;
+}
+
+.siteTitle a { color: #99cc66; }
+
+.post .content h1{ color: #99cc66; }
+.post .content h2{ color: #99cc66; }
+.post .content h3{ color: #99cc66; }
+.post .content h4{ color: #99cc66; }
+.post .content h5{ color: #99cc66; }
+.post .content h6{ color: #99cc66; }
+.post .content a:hover { color: #99cc66; }
+.social-link:hover { color: #99cc66; }
+.nav-item-title:hover { color: #99cc66; }
+.tag a:hover { color: #99cc66; }
+.copyright { color: #404040 }
+.poweredby { color: #404040 }
+.poweredby a { color: #404040; }
+.post-preview .title a{ color: #99cc66; }
+.content-item a:hover{
+  text-decoration: underline;
+  color: #99cc66;
+}
+.post-list .title { color: #99cc66; }
+.rmore { color: #99cc66; }
+.terms .term a:hover {
+  text-decoration: underline;
+  color: #99cc66;
+}
+
+</style>
+
+
+
+<title>
+
+
+     Trying Out Hugo 
+
+</title>
+
+</head>
+
+
+<body>
+<div class="main">
+<header>
+
+<div class="header-bar">
+
+  <nav>
+    <div class="siteTitle">
+      <a href="https://blog.heschlie.com">The blog of Heschlie</a>
+    </div> 
+
+    
+    
+    <a class="nav-item" href="/post/"><div class="nav-item-title">Posts</div></a>
+    
+    <a class="nav-item" href="/tags/"><div class="nav-item-title">Tags</div></a>
+    
+
+  </nav>
+</div>
+
+  
+<div class="social-links-header">
+
+  
+  <a href="mailto:heschlie@gmail.com"><div class="social-link">email</div></a>
+  
+
+  
+  <a href="https://github.com/heschlie" target="_blank"><div class="social-link">gh</div></a>
+  
+
+  
+
+  
+  <a href="https://twitter.com/heschlie" target="_blank"><div class="social-link">twtr</div></a>
+  
+
+  
+  <a href="https://www.linkedin.com/in/heschlie" target="_blank"><div class="social-link">in</div></a>
+  
+
+</div>
+
+
+</header>
+
+
+<article class="post">
+    <h1 class="title"> Trying Out Hugo </h1>
+    <div class="content"> 
+
+<h1 id="trying-out-hugo-for-the-blog">Trying out Hugo for the blog</h1>
+
+<p>Well I have had my eye on Hugo, a static site generator for some time now.
+It is written in Go, supports markdown, has a rich theme system, and as
+it says it generates html you can just drop in for nginx or whatever
+your webserver happens to be.</p>
+
+<p>I&rsquo;ve been using hexo for some time now, and it has worked quite well,
+but I&rsquo;m not fond of managing the Node dependencies, and I don&rsquo;t know
+Javascript all too well so I wanted something that was both open source
+and written in a language I knew and could more easily contribute to. and
+on top of that, Hugo is blazingly fast.</p>
+
+<h2 id="migrating-off-hexo-to-hugo">Migrating off Hexo to Hugo</h2>
+
+<p>I&rsquo;ve started to get a grip on how things work in Hugo, the documentation isn&rsquo;t
+the easiest to grok, but thankfully it has a thriving community, so it is
+pretty easy to sort out what you need to do when converting.</p>
+
+<p>I was pleasantly surprised by how easy it was to migrate from Hexo. There
+wasn&rsquo;t a conversion tool like there are for some other platforms, but since
+Hexo is a Markdown generated site as well, you really only need to update
+shortcodes. With my site I had really only used a few for Youtube videos, and
+Hexo had one for images that I used instead of Markdown. With that in mind it
+was pretty easy to just write a regex to find one short code and convert it
+to either Markdown or the new shortcode. The only catch with the images was
+the alt-text. I put a placeholder in and adjusted it where I felt like it.</p>
+
+<p>The regex I used in VSCode:</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">^<span style="color:#ed9d13">\{\%</span> asset_img (.*) <span style="color:#ed9d13">\%\}</span>$
+![alt-text](/static/dir/path/<span style="color:#40ffff">$1</span>)</code></pre></div>
+<p>I only had a handful of posts I needed to update so I just went through them
+in VSCode which the find/replace allows you to use a regex and supports capture
+groups, obviously replace the <code>/static/dir/path/</code> with the actual path to the
+image.</p>
+
+<p>I don&rsquo;t have a strong opinion on static site generators, but I like Hugo so
+far. I had considered moving to it some time back but got the impression
+using it as a blog would be less than ideal, not sure what gave me said idea
+as it works great!</p>
+
+<h2 id="publishing-content">Publishing content</h2>
+
+<p>I was never a fan of how Hexo went about publishing. There is no reason I
+couldn&rsquo;t have just generated the content and pushed it on my own, but for
+whatever reason I tried to stay in the ecosystem. Hugo, comes with no
+opinion on how to publish. Since I host my own webserver for stuff like this
+I simply generate the content, and use rsync to push the data to the right
+place.</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">rm -rf public/ &amp;&amp; hugo &amp;&amp; rsync -avz --delete public/* blog.heschlie.com:/path/to/blog/</code></pre></div>
+<p>Once I am ready to publish I run that (from a makefile cause why not) via
+<code>make publish</code> and thanks to the beauty of ssh, I&rsquo;m not even prompted
+for a password, quick and simple, and keeps the generated files out of
+the git repo, and no messing around with deployment options in the config.</p>
+
+<h2 id="rss-feeds">RSS feeds</h2>
+
+<p>This one took me a minute to sort out, it turns out it was already generating
+the RSS xml files, they just weren&rsquo;t where I thought it would be. I&rsquo;m used
+to the site having an <code>atom.xml</code> or <code>rss.xml</code> on the root of the project.
+What I was actually looking for was called <code>index.xml</code>, but it wasn&rsquo;t the one
+at the root directory that I needed. Hugo is a bit more clever and will
+generate an xml for each section, so you can watch parts of the site
+independently. For instance, I was looking for <a href="https://blog.heschlie.com/post/index.xml">https://blog.heschlie.com/post/index.xml</a> to point my automation at</p>
+
+<h2 id="final-ish-thoughts">Final&hellip;ish thoughts</h2>
+
+<p>I like it so far, only took me a couple hours to convert my posts over. I did
+loose my Disqus posts, but there were like&hellip;3? Apologies if yours was one of
+them. I could probably map the new posts over to the old ones for Disqus to
+find but I&rsquo;m not sure it is worth it.</p>
+
+<p>I really like that the Hugo is just a single binary (thanks Golang!) and has a
+pretty clean CLI. I always had trouble setting Hexo back up when changing to
+a new machine, Hugo is just grab the binary, clone the repo, start editing.</p>
+ </div>
+    <footer class="post-footer">
+
+  <div class="post-footer-data">
+    
+<div class="tags">
+    
+      <div class="tag">
+        <a href="/tags/blog">#blog</a>
+      </div>
+    
+      <div class="tag">
+        <a href="/tags/go">#Go</a>
+      </div>
+    
+      <div class="tag">
+        <a href="/tags/golang">#golang</a>
+      </div>
+    
+      <div class="tag">
+        <a href="/tags/hexo">#hexo</a>
+      </div>
+    
+      <div class="tag">
+        <a href="/tags/hugo">#hugo</a>
+      </div>
+    
+</div>
+
+    <div class="date"> Sep 28, 2018 </div>
+  </div>
+
+</footer>
+
+
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "blog-heschlie-com" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</article>
+
+  <footer>
+
+  <div class="social-links-footer">
+
+  
+  <a href="mailto:heschlie@gmail.com"><div class="social-link">Email</div></a>
+  
+
+  
+  <a href="https://github.com/heschlie" target="_blank"><div class="social-link">GitHub</div></a>
+  
+
+  
+
+  
+  <a href="https://twitter.com/heschlie" target="_blank"><div class="social-link">Twitter</div></a>
+  
+
+  
+  <a href="https://www.linkedin.com/in/heschlie" target="_blank"><div class="social-link">LinkedIn</div></a>
+  
+
+  <div class="social-link">
+  <a href="https://blog.heschlie.com/index.xml" target="_blank">RSS</a>
+  </div>
+
+</div>
+
+
+  <div class="copyright">  </div>
+
+  <div class="poweredby">
+    Powered by <a href="https://gohugo.io/">Hugo</a>.
+  </div>
+
+  </footer>
+
+</div> 
+
+</body>
+</html>
+

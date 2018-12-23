@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Uncategorized on The blog of Heschlie</title>
+    <link>https://blog.heschlie.com/tags/uncategorized/</link>
+    <description>Recent content in Uncategorized on The blog of Heschlie</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 12 Apr 2016 21:29:27 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.heschlie.com/tags/uncategorized/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Debian Woes</title>
+      <link>https://blog.heschlie.com/post/2016/debian-woes/</link>
+      <pubDate>Tue, 12 Apr 2016 21:29:27 +0000</pubDate>
+      
+      <guid>https://blog.heschlie.com/post/2016/debian-woes/</guid>
+      <description>So At home I like to use Debian, well to be honest I use it anywhere I can, but that is aside from the point here.I recently switched my laptop to Debian (came with Ubuntu, finally had enough of Unity) with Cinnamon as the desktop environment. I happily went along just playing around like normal, enjoying the nice DE, and clean looks.
+Then one day, I go to install my Java IDE and get rolling on some code.</description>
+    </item>
+    
+    <item>
+      <title>What a day!</title>
+      <link>https://blog.heschlie.com/post/2015/what-a-day/</link>
+      <pubDate>Wed, 05 Aug 2015 20:13:35 +0000</pubDate>
+      
+      <guid>https://blog.heschlie.com/post/2015/what-a-day/</guid>
+      <description>Well, today was a day worth posting. I suppose it technically started last night when I got a call from the dealership that my bike is on consignment for, being that it was late I just ignored it in my half dozed state and went to sleep. Little did I know that apparently my Kawasaki had been stolen! I checked the voicemail before I headed out to work in the morning, and got the news, and shortly after called the guy at the dealership, who is a wonderfully nice guy I should add, gave him some missing info for the police report and went on my day.</description>
+    </item>
+    
+    <item>
+      <title>Hey a new blog!</title>
+      <link>https://blog.heschlie.com/post/2015/hey-a-new-blog/</link>
+      <pubDate>Thu, 26 Mar 2015 00:23:52 +0000</pubDate>
+      
+      <guid>https://blog.heschlie.com/post/2015/hey-a-new-blog/</guid>
+      <description>Well I decided to create a personal blog to do my daily thought dump and wanted to keep it off of our main site, iridiumflaregames.com, as a lot of this may or may not pertain to things that are going on with the company. Plus swarming the content with things completely unrelated to games or the company might not be the best thing, but I will probably cross post a lot of stuff from site to site.</description>
+    </item>
+    
+  </channel>
+</rss>

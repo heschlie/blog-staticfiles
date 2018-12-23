@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Titan Aero on The blog of Heschlie</title>
+    <link>https://blog.heschlie.com/tags/titan-aero/</link>
+    <description>Recent content in Titan Aero on The blog of Heschlie</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 06 Apr 2018 15:02:14 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.heschlie.com/tags/titan-aero/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CR10S-S5 followup</title>
+      <link>https://blog.heschlie.com/post/2018/cr10s-s5-followup/</link>
+      <pubDate>Fri, 06 Apr 2018 15:02:14 +0000</pubDate>
+      
+      <guid>https://blog.heschlie.com/post/2018/cr10s-s5-followup/</guid>
+      <description>A Followup on the CR10S S5 So I&amp;rsquo;ve been tinkering with the printer for about a week now. All of my planned upgrades have come in and some of them ended up not needing to be upgrades, I&amp;rsquo;ll talk more in detail about that below. For those not wanting to read the whole article, the short of it is I&amp;rsquo;ve pretty much dialed in the settings with the new extruder/hotend using 3mm filament, and I am impressed with the results.</description>
+    </item>
+    
+    <item>
+      <title>Upgrading a CR10S-S5</title>
+      <link>https://blog.heschlie.com/post/2018/upgrading-a-cr10s-s5/</link>
+      <pubDate>Tue, 03 Apr 2018 18:27:28 +0000</pubDate>
+      
+      <guid>https://blog.heschlie.com/post/2018/upgrading-a-cr10s-s5/</guid>
+      <description>A brief overview of the CR10S-S5 Recently I decided one 3D printer was just not enough. I have no complaints about my first printer, an Ultimaker 2+, it creates some beautiful prints and does them quickly as well. However, I do every so often want to print bigger, which means multiple pieces and glue. So I had been keeping an eye out for a decent quality large volume printer, and my dreams came true!</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Devops on The blog of Heschlie</title>
+    <link>https://blog.heschlie.com/tags/devops/</link>
+    <description>Recent content in Devops on The blog of Heschlie</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 16 Feb 2018 16:27:19 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.heschlie.com/tags/devops/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Home Kubernetes Cluster Using ODROID HC2 Boards Part 2</title>
+      <link>https://blog.heschlie.com/post/2018/home-kubernetes-cluster-using-odroid-hc2-boards-part-2/</link>
+      <pubDate>Fri, 16 Feb 2018 16:27:19 +0000</pubDate>
+      
+      <guid>https://blog.heschlie.com/post/2018/home-kubernetes-cluster-using-odroid-hc2-boards-part-2/</guid>
+      <description>Link to Part 1
+In this continuing series we&amp;rsquo;re setting up the hardware and installing Ubuntu to the HC2s.
+Let&amp;rsquo;s get building! Get everything unboxed, and find yourself oddly pleased with how well the cases snap together to form your nice new tower. You can see here what they look like stacked, and you can see the barrel plugs I need to tie into my power supply.
+I wired up the plugs to a single set of wires to make managing the easier.</description>
+    </item>
+    
+    <item>
+      <title>Home Kubernetes Cluster Using ODROID HC2 Boards Part 1</title>
+      <link>https://blog.heschlie.com/post/2018/home-kubernetes-cluster-using-odroid-hc2-boards-part-1/</link>
+      <pubDate>Mon, 12 Feb 2018 01:33:16 +0000</pubDate>
+      
+      <guid>https://blog.heschlie.com/post/2018/home-kubernetes-cluster-using-odroid-hc2-boards-part-1/</guid>
+      <description>This is going to be a multi part blog series about setting up a Kubernetes cluster at home, on a budget. In this first post we&amp;rsquo;ll talk about the why of this, and speccing out the hardware. I plan for this to be roughly equivalent to a production k8s deployment, using TLS/SSL, enforcing policies, and connecting it to my NAS via NFS for persistent storage where needed.
+Why do you want a K8s cluster at home?</description>
+    </item>
+    
+  </channel>
+</rss>

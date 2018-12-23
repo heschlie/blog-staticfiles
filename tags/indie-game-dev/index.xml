@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Indie Game Dev on The blog of Heschlie</title>
+    <link>https://blog.heschlie.com/tags/indie-game-dev/</link>
+    <description>Recent content in Indie Game Dev on The blog of Heschlie</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 04 Apr 2015 09:14:20 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.heschlie.com/tags/indie-game-dev/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Well that was a fun trip!</title>
+      <link>https://blog.heschlie.com/post/2015/well-that-was-a-fun-trip/</link>
+      <pubDate>Sat, 04 Apr 2015 09:14:20 +0000</pubDate>
+      
+      <guid>https://blog.heschlie.com/post/2015/well-that-was-a-fun-trip/</guid>
+      <description>We have finally released our game over at Iridium Flare Games, it is a fun little endless runner with 100% original, hand crafted graphics and code. If you are an Android user you should check it out and let us know how you like it, you can find it on the Play Store as Ogre Simulator. It was a long and strange journey, we basically had no idea what we were doing, even though we had already worked on another title, that is still in progress, and every time we set a deadline we failed to meet it.</description>
+    </item>
+    
+  </channel>
+</rss>

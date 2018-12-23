@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Wow on The blog of Heschlie</title>
+    <link>https://blog.heschlie.com/tags/wow/</link>
+    <description>Recent content in Wow on The blog of Heschlie</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 26 Mar 2015 17:23:19 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.heschlie.com/tags/wow/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tinkering with Battlenets REST API</title>
+      <link>https://blog.heschlie.com/post/2015/tinkering-with-battlenets-rest-api/</link>
+      <pubDate>Thu, 26 Mar 2015 17:23:19 +0000</pubDate>
+      
+      <guid>https://blog.heschlie.com/post/2015/tinkering-with-battlenets-rest-api/</guid>
+      <description>So a couple years ago I started teaching myself programming, there was a lot of bumps along the way, and knowing what I know now I probably would have done things much differently, but isn&amp;rsquo;t that always the case. Anyway, back then I started with Python and Perl as they were relevant to what I was trying to do in my sysadmin work, but quickly branched out to Java, C/C++, and tinkered in some other languages.</description>
+    </item>
+    
+  </channel>
+</rss>

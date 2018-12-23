@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8" />
+<meta name="author" content="Stephen Schlie" />
+<meta name="description" content="Personal blog." />
+<meta name="keywords" content="blog, tech" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="generator" content="Hugo 0.48" />
+
+<link rel="canonical" href="https://blog.heschlie.com/post/2015/tinkering-with-battlenets-rest-api/">
+<meta property="og:title" content="Tinkering with Battlenets REST API" />
+<meta property="og:description" content="So a couple years ago I started teaching myself programming, there was a lot of bumps along the way, and knowing what I know now I probably would have done things much differently, but isn&rsquo;t that always the case. Anyway, back then I started with Python and Perl as they were relevant to what I was trying to do in my sysadmin work, but quickly branched out to Java, C/C&#43;&#43;, and tinkered in some other languages." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.heschlie.com/post/2015/tinkering-with-battlenets-rest-api/" /><meta property="article:published_time" content="2015-03-26T17:23:19&#43;00:00"/>
+<meta property="article:modified_time" content="2015-03-26T17:23:19&#43;00:00"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Tinkering with Battlenets REST API"/>
+<meta name="twitter:description" content="So a couple years ago I started teaching myself programming, there was a lot of bumps along the way, and knowing what I know now I probably would have done things much differently, but isn&rsquo;t that always the case. Anyway, back then I started with Python and Perl as they were relevant to what I was trying to do in my sysadmin work, but quickly branched out to Java, C/C&#43;&#43;, and tinkered in some other languages."/>
+
+
+
+<meta itemprop="name" content="Tinkering with Battlenets REST API">
+<meta itemprop="description" content="So a couple years ago I started teaching myself programming, there was a lot of bumps along the way, and knowing what I know now I probably would have done things much differently, but isn&rsquo;t that always the case. Anyway, back then I started with Python and Perl as they were relevant to what I was trying to do in my sysadmin work, but quickly branched out to Java, C/C&#43;&#43;, and tinkered in some other languages.">
+
+
+<meta itemprop="datePublished" content="2015-03-26T17:23:19&#43;00:00" />
+<meta itemprop="dateModified" content="2015-03-26T17:23:19&#43;00:00" />
+<meta itemprop="wordCount" content="690">
+
+
+
+<meta itemprop="keywords" content="code,coding,programming,python,rest,world of warcraft,wow," />
+
+
+<link rel="stylesheet" href="/css/layout.css" />
+<style type="text/css">
+body {
+  background-color: #262626;
+  color: #dbdbdb;
+}
+
+a { color: #dbdbdb; }
+
+pre {
+  background: #1D1F21;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+}
+
+code {
+  background: #1D1F21;
+}
+
+blockquote {
+  background: #1D1F21;
+  border-left: 3px solid #dbdbdb;
+}
+
+table {
+  margin: 1em auto;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid #dbdbdb;
+}
+
+th {
+  background: #dbdbdb;
+  color: #262626;
+}
+
+.siteTitle a { color: #99cc66; }
+
+.post .content h1{ color: #99cc66; }
+.post .content h2{ color: #99cc66; }
+.post .content h3{ color: #99cc66; }
+.post .content h4{ color: #99cc66; }
+.post .content h5{ color: #99cc66; }
+.post .content h6{ color: #99cc66; }
+.post .content a:hover { color: #99cc66; }
+.social-link:hover { color: #99cc66; }
+.nav-item-title:hover { color: #99cc66; }
+.tag a:hover { color: #99cc66; }
+.copyright { color: #404040 }
+.poweredby { color: #404040 }
+.poweredby a { color: #404040; }
+.post-preview .title a{ color: #99cc66; }
+.content-item a:hover{
+  text-decoration: underline;
+  color: #99cc66;
+}
+.post-list .title { color: #99cc66; }
+.rmore { color: #99cc66; }
+.terms .term a:hover {
+  text-decoration: underline;
+  color: #99cc66;
+}
+
+</style>
+
+
+
+<title>
+
+
+     Tinkering with Battlenets REST API 
+
+</title>
+
+</head>
+
+
+<body>
+<div class="main">
+<header>
+
+<div class="header-bar">
+
+  <nav>
+    <div class="siteTitle">
+      <a href="https://blog.heschlie.com">The blog of Heschlie</a>
+    </div> 
+
+    
+    
+    <a class="nav-item" href="/post/"><div class="nav-item-title">Posts</div></a>
+    
+    <a class="nav-item" href="/tags/"><div class="nav-item-title">Tags</div></a>
+    
+
+  </nav>
+</div>
+
+  
+<div class="social-links-header">
+
+  
+  <a href="mailto:heschlie@gmail.com"><div class="social-link">email</div></a>
+  
+
+  
+  <a href="https://github.com/heschlie" target="_blank"><div class="social-link">gh</div></a>
+  
+
+  
+
+  
+  <a href="https://twitter.com/heschlie" target="_blank"><div class="social-link">twtr</div></a>
+  
+
+  
+  <a href="https://www.linkedin.com/in/heschlie" target="_blank"><div class="social-link">in</div></a>
+  
+
+</div>
+
+
+</header>
+
+
+<article class="post">
+    <h1 class="title"> Tinkering with Battlenets REST API </h1>
+    <div class="content"> <p>So a couple years ago I started teaching myself programming, there was a lot of bumps along the way, and knowing what I know now I probably would have done things much differently, but isn&rsquo;t that always the case.  Anyway, back then I started with Python and Perl as they were relevant to what I was trying to do in my sysadmin work, but quickly branched out to Java, C/C++, and tinkered in some other languages.  I would not go as far as to say I am great at working with any of these languages, but I am competent enough to do some fun things, like develop an <a href="https://play.google.com/store/apps/details?id=com.heschlie.supersludgejumper.ssj.android" title="Android game">Android game</a> and make some very handy scripts for myself at work.  I&rsquo;ve since started working on more larger projects, you can see some of my posts on our site at <a href="http://iridiumflaregames.com" title="Iridium Flare Games">Iridium Flare Games</a> about our progress on a couple of games I am developing with a friend.</p>
+
+<p>Anyway, when Warlords of Draenor came out I managed to get myself dragged back into WoW.  It has been fun times, and with the latest content patch it is keeping me interested.  Sometime back I ended up in a guild I liked, and was curious how I stacked up against the rest of the guild in gear.  I originally thought that Battlenet would have this built into their webUI, but apparently not!  So I checked out their REST API and had some fun.  I came up with this script, which you can download from <a href="https://github.com/heschlie/wowilvl">github</a> and try out (you will need Python3 installed, and the requests package) to see how you compare to the rest of your guild!</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#6ab825;font-weight:bold">import</span> <span style="color:#447fcf;text-decoration:underline">multiprocessing</span> <span style="color:#6ab825;font-weight:bold">as</span> <span style="color:#447fcf;text-decoration:underline">mp</span>
+<span style="color:#6ab825;font-weight:bold">import</span> <span style="color:#447fcf;text-decoration:underline">operator</span>
+<span style="color:#6ab825;font-weight:bold">import</span> <span style="color:#447fcf;text-decoration:underline">configparser</span>
+<span style="color:#6ab825;font-weight:bold">import</span> <span style="color:#447fcf;text-decoration:underline">requests</span>
+
+config = configparser.ConfigParser()
+config.read(&amp;quot;wowapi.cfg&amp;quot;)
+client_id = config[<span style="color:#ed9d13">&#39;DEFAULT&#39;</span>][<span style="color:#ed9d13">&#39;clientID&#39;</span>]
+
+<span style="color:#999;font-style:italic"># Change these to find your guild</span>
+server = &amp;quot;the forgotten coast&amp;quot;
+guild = &amp;quot;auxilium&amp;quot;
+
+<span style="color:#999;font-style:italic"># Setup threadsafe queue to add jobs to</span>
+queue = mp.Queue()
+
+<span style="color:#999;font-style:italic"># Battlenet stuff for HTTP GET url/header building</span>
+api_uri = <span style="color:#ed9d13">&#39;https://us.api.battle.net&#39;</span>
+
+key = {<span style="color:#ed9d13">&#39;apikey&#39;</span>: client_id}
+member_payload = {<span style="color:#ed9d13">&#39;fields&#39;</span>: <span style="color:#ed9d13">&#39;members&#39;</span>}
+char_items = {<span style="color:#ed9d13">&#39;fields&#39;</span>: <span style="color:#ed9d13">&#39;items&#39;</span>}
+
+<span style="color:#6ab825;font-weight:bold">def</span> <span style="color:#447fcf">main</span>():
+
+    <span style="color:#999;font-style:italic"># Build the dict to use for the params in the HTTP GET</span>
+    payload = key.copy()
+    payload.update(member_payload)
+
+    <span style="color:#999;font-style:italic"># HTTP GET request with the server and guild from above,</span>
+    <span style="color:#999;font-style:italic"># and then parse that as json</span>
+    r = requests.get(api_uri + <span style="color:#ed9d13">&#39;/wow/guild/&#39;</span> + server + <span style="color:#ed9d13">&#39;/&#39;</span> + guild,
+                     params=payload)
+    data = r.json()
+
+    <span style="color:#999;font-style:italic"># Grab the members json object which contains all of the characters from</span>
+    <span style="color:#999;font-style:italic"># the guild, and add them to the queue to be processed</span>
+    entries = data[<span style="color:#ed9d13">&#39;members&#39;</span>]
+    <span style="color:#6ab825;font-weight:bold">for</span> char <span style="color:#6ab825;font-weight:bold">in</span> entries:
+        queue.put([char[<span style="color:#ed9d13">&#39;character&#39;</span>][<span style="color:#ed9d13">&#39;name&#39;</span>], char[<span style="color:#ed9d13">&#39;character&#39;</span>]])
+
+    <span style="color:#999;font-style:italic"># Get the size of the queue for tracking progress, create a threadsafe dict</span>
+    <span style="color:#999;font-style:italic"># and create a list of jobs/processes to execute on the queue</span>
+    total = queue.qsize()
+    char_ilvl = mp.Manager().<span style="color:#24909d">dict</span>()
+    jobs = []
+    <span style="color:#6ab825;font-weight:bold">for</span> i <span style="color:#6ab825;font-weight:bold">in</span> <span style="color:#24909d">range</span>(<span style="color:#3677a9">20</span>):
+        p = mp.Process(target=worker, args=(queue, char_ilvl,))
+        jobs.append(p)
+        p.start()
+
+    <span style="color:#999;font-style:italic"># There may be a much better way to do this, we are simply waiting for the</span>
+    <span style="color:#999;font-style:italic"># processes to complete and then move on to sorting and printing the</span>
+    <span style="color:#999;font-style:italic"># characters</span>
+    waiting = True
+    <span style="color:#6ab825;font-weight:bold">while</span> waiting:
+        i = <span style="color:#3677a9">0</span>
+        <span style="color:#6ab825;font-weight:bold">for</span> job <span style="color:#6ab825;font-weight:bold">in</span> jobs:
+            <span style="color:#6ab825;font-weight:bold">if</span> job.is_alive():
+                i += <span style="color:#3677a9">1</span>
+        <span style="color:#6ab825;font-weight:bold">if</span> i == <span style="color:#3677a9">0</span>:
+            waiting = False
+        current = (queue.qsize() - total) * -<span style="color:#3677a9">1</span>
+        <span style="color:#6ab825;font-weight:bold">print</span>(<span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">\r</span><span style="color:#ed9d13">[{0}/{1}] ({2})&#39;</span>.format(current, total, i), end=&amp;quot;&amp;quot;, flush=True)
+
+    sorted_ilvl = <span style="color:#24909d">sorted</span>(char_ilvl.items(), key=operator.itemgetter(<span style="color:#3677a9">1</span>))
+    <span style="color:#6ab825;font-weight:bold">print</span>()
+    <span style="color:#6ab825;font-weight:bold">for</span> k, v <span style="color:#6ab825;font-weight:bold">in</span> sorted_ilvl:
+        <span style="color:#6ab825;font-weight:bold">print</span>(k, v)
+
+<span style="color:#6ab825;font-weight:bold">def</span> <span style="color:#447fcf">worker</span>(q, d):
+    &amp;quot;&amp;quot;&amp;quot;Used <span style="color:#6ab825;font-weight:bold">as</span> a worker thread to process the data pulled <span style="color:#6ab825;font-weight:bold">from</span> <span style="color:#447fcf;text-decoration:underline">battlenet</span>&amp;quot;&amp;quot;&amp;quot;
+
+    <span style="color:#6ab825;font-weight:bold">while</span> <span style="color:#6ab825;font-weight:bold">not</span> q.empty():
+        <span style="color:#999;font-style:italic"># Build the headers to get the correct json that contains average ilvl</span>
+        <span style="color:#999;font-style:italic"># then grab the next job from the queue for character name and realm</span>
+        <span style="color:#999;font-style:italic"># to add to the uri</span>
+        payload = key.copy()
+        payload.update(char_items)
+        name, data = q.get()
+
+        <span style="color:#999;font-style:italic"># Checking for realm as sometimes this seems to not be there, possibly</span>
+        <span style="color:#999;font-style:italic"># due to battlenet updates being behind after char moves?  Same with</span>
+        <span style="color:#999;font-style:italic"># the items object nested if</span>
+        <span style="color:#6ab825;font-weight:bold">if</span> <span style="color:#ed9d13">&#39;realm&#39;</span> <span style="color:#6ab825;font-weight:bold">in</span> data:
+            iData = requests.get(api_uri + <span style="color:#ed9d13">&#39;/wow/character/&#39;</span> + data[<span style="color:#ed9d13">&#39;realm&#39;</span>] +
+                                 <span style="color:#ed9d13">&#39;/&#39;</span> + name, params=payload)
+            ilvl = iData.json()
+            <span style="color:#6ab825;font-weight:bold">if</span> <span style="color:#ed9d13">&#39;items&#39;</span> <span style="color:#6ab825;font-weight:bold">in</span> ilvl:
+                d[name] = ilvl[<span style="color:#ed9d13">&#39;items&#39;</span>][<span style="color:#ed9d13">&#39;averageItemLevel&#39;</span>]
+
+<span style="color:#6ab825;font-weight:bold">if</span> __name__ == &amp;quot;__main__&amp;quot;:
+    <span style="color:#6ab825;font-weight:bold">if</span> client_id == &amp;quot;yourKey&amp;quot;:
+        <span style="color:#6ab825;font-weight:bold">print</span>(&amp;quot;Please replace the clientID <span style="color:#6ab825;font-weight:bold">in</span> the wowapi.cfg <span style="color:#6ab825;font-weight:bold">with</span> your api key&amp;quot;)
+    <span style="color:#6ab825;font-weight:bold">else</span>:
+        main()</code></pre></div> </div>
+    <footer class="post-footer">
+
+  <div class="post-footer-data">
+    
+<div class="tags">
+    
+      <div class="tag">
+        <a href="/tags/code">#code</a>
+      </div>
+    
+      <div class="tag">
+        <a href="/tags/coding">#coding</a>
+      </div>
+    
+      <div class="tag">
+        <a href="/tags/programming">#programming</a>
+      </div>
+    
+      <div class="tag">
+        <a href="/tags/python">#python</a>
+      </div>
+    
+      <div class="tag">
+        <a href="/tags/rest">#rest</a>
+      </div>
+    
+      <div class="tag">
+        <a href="/tags/world-of-warcraft">#world of warcraft</a>
+      </div>
+    
+      <div class="tag">
+        <a href="/tags/wow">#wow</a>
+      </div>
+    
+</div>
+
+    <div class="date"> Mar 26, 2015 </div>
+  </div>
+
+</footer>
+
+
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "blog-heschlie-com" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</article>
+
+  <footer>
+
+  <div class="social-links-footer">
+
+  
+  <a href="mailto:heschlie@gmail.com"><div class="social-link">Email</div></a>
+  
+
+  
+  <a href="https://github.com/heschlie" target="_blank"><div class="social-link">GitHub</div></a>
+  
+
+  
+
+  
+  <a href="https://twitter.com/heschlie" target="_blank"><div class="social-link">Twitter</div></a>
+  
+
+  
+  <a href="https://www.linkedin.com/in/heschlie" target="_blank"><div class="social-link">LinkedIn</div></a>
+  
+
+  <div class="social-link">
+  <a href="https://blog.heschlie.com/index.xml" target="_blank">RSS</a>
+  </div>
+
+</div>
+
+
+  <div class="copyright">  </div>
+
+  <div class="poweredby">
+    Powered by <a href="https://gohugo.io/">Hugo</a>.
+  </div>
+
+  </footer>
+
+</div> 
+
+</body>
+</html>
+

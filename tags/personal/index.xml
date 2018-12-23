@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Personal on The blog of Heschlie</title>
+    <link>https://blog.heschlie.com/tags/personal/</link>
+    <description>Recent content in Personal on The blog of Heschlie</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 02 Feb 2017 20:48:58 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.heschlie.com/tags/personal/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>A new Blog!</title>
+      <link>https://blog.heschlie.com/post/2017/a-new-blog/</link>
+      <pubDate>Thu, 02 Feb 2017 20:48:58 +0000</pubDate>
+      
+      <guid>https://blog.heschlie.com/post/2017/a-new-blog/</guid>
+      <description>Prepare for a boring post about blog software!
+Heya Folks! I decided to try out a new blog software, I found myself wanting to write posts in something more MarkDown like, and Wordpress didn&amp;rsquo;t have very many good options for a MD editor with proper syntax highlighting. I&amp;rsquo;ve been writing a lot of MD for our git repos at Tigera, and code examples on Slack, and other places. I did some digging and came very close to grabbing Jekyll, but after some research I ended up landing on Hexo.</description>
+    </item>
+    
+    <item>
+      <title>Encryption everywhere!</title>
+      <link>https://blog.heschlie.com/post/2015/encryption-everywhere/</link>
+      <pubDate>Mon, 21 Dec 2015 18:22:24 +0000</pubDate>
+      
+      <guid>https://blog.heschlie.com/post/2015/encryption-everywhere/</guid>
+      <description>Wow, it has been some time since I made any posts. I was recently having some issues with the site and it got me on a security kick as of late. On my server that I host this site out of I run a script that parses through the access logs on my Debian box and looks for invalid login attempts, which appear to be dictionary attacks, checking for default logins and common passwords based on the login names they are trying to use.</description>
+    </item>
+    
+    <item>
+      <title>New personal ventures</title>
+      <link>https://blog.heschlie.com/post/2015/new-personal-ventures/</link>
+      <pubDate>Wed, 23 Sep 2015 08:49:43 +0000</pubDate>
+      
+      <guid>https://blog.heschlie.com/post/2015/new-personal-ventures/</guid>
+      <description>Well it has been awhile since I posted last, lots of fun stuff going on but I&amp;rsquo;m going to try to keep it short. As I know some of the very few people who read this do not like walls of text, you know who you are&amp;hellip;
+So a friend and I have decided to try and spin up a motorcycle show on YouTube in the style of Top Gear (or former Top Gear anyway) where it is mostly a satire of reviews, but not completely, if that makes sense?</description>
+    </item>
+    
+    <item>
+      <title>Creating APIs and frameworks (no code, just talk)</title>
+      <link>https://blog.heschlie.com/post/2015/creating-apis-and-frameworks-no-code-just-talk/</link>
+      <pubDate>Thu, 20 Aug 2015 06:43:13 +0000</pubDate>
+      
+      <guid>https://blog.heschlie.com/post/2015/creating-apis-and-frameworks-no-code-just-talk/</guid>
+      <description>Well I&amp;rsquo;ve settled into my position at Dell now, and am starting to finally make some real changes now. We use a scheduling and automation suite here from a 3rd party that is pretty awesome, at least from a users perspective. The administration side of it feels like an afterthought in comparison, and it might be as they have a fairly extensive API to bang against, but it is an XML-RPC API, and not even a standard one so I cannot use the Python XML-RPC libs to get the job done.</description>
+    </item>
+    
+    <item>
+      <title>Stay awhile, and listen...</title>
+      <link>https://blog.heschlie.com/post/2015/stay-awhile-and-listen/</link>
+      <pubDate>Thu, 30 Jul 2015 10:53:54 +0000</pubDate>
+      
+      <guid>https://blog.heschlie.com/post/2015/stay-awhile-and-listen/</guid>
+      <description>Well it has been quite an exciting couple weeks. Got a new motorcycle, Cousin got married, making waves at the new job, built a new fence and tore down the old one, and played some Diablo! Well that last point isn&amp;rsquo;t very exciting, but I like that game and a friend just picked it up so I played a bit with him.
+We started doing some landscaping at the house this last weekend, there was an old crufty fence that blocked off some of the stupid amount of RV parking we had.</description>
+    </item>
+    
+    <item>
+      <title>Another week almost done, and some new toys on the horizon</title>
+      <link>https://blog.heschlie.com/post/2015/another-week-almost-done-and-some-new-toys-on-the-horizon/</link>
+      <pubDate>Thu, 16 Jul 2015 06:57:15 +0000</pubDate>
+      
+      <guid>https://blog.heschlie.com/post/2015/another-week-almost-done-and-some-new-toys-on-the-horizon/</guid>
+      <description>Well it is almost the end of the week, I had some time before I get my day rolling in the office so I thought it would be a good time to do a thought dump while having my coffee.
+I&amp;rsquo;ve been here for almost 2 weeks now, really starting to settle in and make this place feel like home. It is kind of weird not dreading going into the office every day.</description>
+    </item>
+    
+    <item>
+      <title>Exciting times at the Schlie household</title>
+      <link>https://blog.heschlie.com/post/2015/exciting-times-at-the-schlie-household/</link>
+      <pubDate>Wed, 01 Jul 2015 20:54:32 +0000</pubDate>
+      
+      <guid>https://blog.heschlie.com/post/2015/exciting-times-at-the-schlie-household/</guid>
+      <description>Well we had a house party this last weekend and it all went very well, Whitney and I are now engaged and she is rocking on the wedding plans. We&amp;rsquo;re not even engaged for a week and she has already setup the venue, dates, and we have the wedding party planned, things are a movin! It was nice to have most of our friends and some of our family around for the event, I managed to keep it a secret from basically everyone.</description>
+    </item>
+    
+    <item>
+      <title>Looks like I&#39;ll be joining the working world again</title>
+      <link>https://blog.heschlie.com/post/2015/looks-like-ill-be-joining-the-working-world-again/</link>
+      <pubDate>Mon, 22 Jun 2015 15:27:39 +0000</pubDate>
+      
+      <guid>https://blog.heschlie.com/post/2015/looks-like-ill-be-joining-the-working-world-again/</guid>
+      <description>Well it has been awhile since the layoffs at Riverbed, I&amp;rsquo;ve had many an interview but I was finally extended a formal offer, and the other two places that I had in mind fizzled out, so I&amp;rsquo;ll likely be taking this. The unfortunate part is I will be commuting down to San Jose from Concord again, in the end it isn&amp;rsquo;t horrible, I have some folks I will carpool with as they work down the road, so it will almost be like public transit!</description>
+    </item>
+    
+    <item>
+      <title>Moar interviews!</title>
+      <link>https://blog.heschlie.com/post/2015/moar-interviews/</link>
+      <pubDate>Mon, 08 Jun 2015 15:56:19 +0000</pubDate>
+      
+      <guid>https://blog.heschlie.com/post/2015/moar-interviews/</guid>
+      <description>Well is has been a fun week, and more fun to come. I did several phone screens last week that have landed me face-to-face interviews. It is some exciting stuff and there are two places that I am really, really hoping work out. I had to kick my JavaEE application server administration knowledge into high gear though. In the past I have done some basic administration on Tomcat and Glassfish servers, but never any really deep dives into the tech.</description>
+    </item>
+    
+    <item>
+      <title>It has been quite a week</title>
+      <link>https://blog.heschlie.com/post/2015/it-has-been-quite-a-week/</link>
+      <pubDate>Fri, 05 Jun 2015 08:51:14 +0000</pubDate>
+      
+      <guid>https://blog.heschlie.com/post/2015/it-has-been-quite-a-week/</guid>
+      <description>Well, it&amp;rsquo;s Friday! Yay! We&amp;rsquo;ve had an interesting week here in our new home. Last week our kitchen lights decided to go out, all at the same time, so electrical issue not bulb issues. We called out the electrician who ran some new circuits to the office for us, and he came out almost immediately and gave us a temporary fix (as this was Friday night at like 6pm) so we had lights until he came back on Wednesday.</description>
+    </item>
+    
+  </channel>
+</rss>

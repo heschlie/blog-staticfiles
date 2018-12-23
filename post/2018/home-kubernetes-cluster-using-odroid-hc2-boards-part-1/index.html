@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8" />
+<meta name="author" content="Stephen Schlie" />
+<meta name="description" content="Personal blog." />
+<meta name="keywords" content="blog, tech" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="generator" content="Hugo 0.48" />
+
+<link rel="canonical" href="https://blog.heschlie.com/post/2018/home-kubernetes-cluster-using-odroid-hc2-boards-part-1/">
+<meta property="og:title" content="Home Kubernetes Cluster Using ODROID HC2 Boards Part 1" />
+<meta property="og:description" content="This is going to be a multi part blog series about setting up a Kubernetes cluster at home, on a budget. In this first post we&rsquo;ll talk about the why of this, and speccing out the hardware. I plan for this to be roughly equivalent to a production k8s deployment, using TLS/SSL, enforcing policies, and connecting it to my NAS via NFS for persistent storage where needed.
+Why do you want a K8s cluster at home?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.heschlie.com/post/2018/home-kubernetes-cluster-using-odroid-hc2-boards-part-1/" /><meta property="article:published_time" content="2018-02-12T01:33:16&#43;00:00"/>
+<meta property="article:modified_time" content="2018-02-12T01:33:16&#43;00:00"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Home Kubernetes Cluster Using ODROID HC2 Boards Part 1"/>
+<meta name="twitter:description" content="This is going to be a multi part blog series about setting up a Kubernetes cluster at home, on a budget. In this first post we&rsquo;ll talk about the why of this, and speccing out the hardware. I plan for this to be roughly equivalent to a production k8s deployment, using TLS/SSL, enforcing policies, and connecting it to my NAS via NFS for persistent storage where needed.
+Why do you want a K8s cluster at home?"/>
+
+
+
+<meta itemprop="name" content="Home Kubernetes Cluster Using ODROID HC2 Boards Part 1">
+<meta itemprop="description" content="This is going to be a multi part blog series about setting up a Kubernetes cluster at home, on a budget. In this first post we&rsquo;ll talk about the why of this, and speccing out the hardware. I plan for this to be roughly equivalent to a production k8s deployment, using TLS/SSL, enforcing policies, and connecting it to my NAS via NFS for persistent storage where needed.
+Why do you want a K8s cluster at home?">
+
+
+<meta itemprop="datePublished" content="2018-02-12T01:33:16&#43;00:00" />
+<meta itemprop="dateModified" content="2018-02-12T01:33:16&#43;00:00" />
+<meta itemprop="wordCount" content="1242">
+
+
+
+<meta itemprop="keywords" content="kubernetes,devops,cloud,home cloud,raspberry pi,rpi," />
+
+
+<link rel="stylesheet" href="/css/layout.css" />
+<style type="text/css">
+body {
+  background-color: #262626;
+  color: #dbdbdb;
+}
+
+a { color: #dbdbdb; }
+
+pre {
+  background: #1D1F21;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+}
+
+code {
+  background: #1D1F21;
+}
+
+blockquote {
+  background: #1D1F21;
+  border-left: 3px solid #dbdbdb;
+}
+
+table {
+  margin: 1em auto;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid #dbdbdb;
+}
+
+th {
+  background: #dbdbdb;
+  color: #262626;
+}
+
+.siteTitle a { color: #99cc66; }
+
+.post .content h1{ color: #99cc66; }
+.post .content h2{ color: #99cc66; }
+.post .content h3{ color: #99cc66; }
+.post .content h4{ color: #99cc66; }
+.post .content h5{ color: #99cc66; }
+.post .content h6{ color: #99cc66; }
+.post .content a:hover { color: #99cc66; }
+.social-link:hover { color: #99cc66; }
+.nav-item-title:hover { color: #99cc66; }
+.tag a:hover { color: #99cc66; }
+.copyright { color: #404040 }
+.poweredby { color: #404040 }
+.poweredby a { color: #404040; }
+.post-preview .title a{ color: #99cc66; }
+.content-item a:hover{
+  text-decoration: underline;
+  color: #99cc66;
+}
+.post-list .title { color: #99cc66; }
+.rmore { color: #99cc66; }
+.terms .term a:hover {
+  text-decoration: underline;
+  color: #99cc66;
+}
+
+</style>
+
+
+
+<title>
+
+
+     Home Kubernetes Cluster Using ODROID HC2 Boards Part 1 
+
+</title>
+
+</head>
+
+
+<body>
+<div class="main">
+<header>
+
+<div class="header-bar">
+
+  <nav>
+    <div class="siteTitle">
+      <a href="https://blog.heschlie.com">The blog of Heschlie</a>
+    </div> 
+
+    
+    
+    <a class="nav-item" href="/post/"><div class="nav-item-title">Posts</div></a>
+    
+    <a class="nav-item" href="/tags/"><div class="nav-item-title">Tags</div></a>
+    
+
+  </nav>
+</div>
+
+  
+<div class="social-links-header">
+
+  
+  <a href="mailto:heschlie@gmail.com"><div class="social-link">email</div></a>
+  
+
+  
+  <a href="https://github.com/heschlie" target="_blank"><div class="social-link">gh</div></a>
+  
+
+  
+
+  
+  <a href="https://twitter.com/heschlie" target="_blank"><div class="social-link">twtr</div></a>
+  
+
+  
+  <a href="https://www.linkedin.com/in/heschlie" target="_blank"><div class="social-link">in</div></a>
+  
+
+</div>
+
+
+</header>
+
+
+<article class="post">
+    <h1 class="title"> Home Kubernetes Cluster Using ODROID HC2 Boards Part 1 </h1>
+    <div class="content"> 
+
+<p>This is going to be a multi part blog series about setting up a Kubernetes cluster at home, on a budget. In this first post we&rsquo;ll talk about the why of this, and speccing out the hardware. I plan for this to be roughly equivalent to a production k8s deployment, using TLS/SSL, enforcing policies, and connecting it to my NAS via NFS for persistent storage where needed.</p>
+
+<h1 id="why-do-you-want-a-k8s-cluster-at-home">Why do you want a K8s cluster at home?!</h1>
+
+<p>We&rsquo;ll I&rsquo;ve always been more of a hardware nut, I find the cloud and everything it brings to be very awesome, and much prefer using it professionally. But when it comes to doing things at home there is something about being able to go and look at the physical hardware that tickles me. On top of that running at five node cluster in the cloud on the cheap is still something like $50+ a month. There are some upsides and downsides to this.</p>
+
+<p>Pros:</p>
+
+<ul>
+<li>One time cost for hardware</li>
+<li>You get to pick exactly what hardware is backing the cluster</li>
+<li>You can run local (home network) things without a VPN</li>
+<li>You can point it out to your friends who don&rsquo;t understand why you waste your personal time on such weird things and think you might need a life</li>
+</ul>
+
+<p>Cons:</p>
+
+<ul>
+<li>You only have your home bandwidth if you are serving public facing stuff</li>
+<li>It takes up space and power</li>
+<li>You have to maintain the hardware</li>
+</ul>
+
+<p>The biggest con in my opinion is the bandwidth. I want to move some of the websites I run to k8s but with a measly 10mbps upload speed it isn&rsquo;t really feasible. Aside from that I want to move some of my internal things over to k8s to get some more experience using it and hosting it locally lets me tear it down and do weird things with it and not have to worry about the cost of it sitting idle.</p>
+
+<p>Oh you want to know why I want to run a personal k8s cluster at all? Well it is a product that fascinates me greatly, and I like doing overly complicated projects at home.</p>
+
+<h1 id="what-kind-of-hardware-to-run-it-on">What kind of hardware to run it on</h1>
+
+<p>Well if you read the title you probably already know the answer, but let&rsquo;s stroll down the path that led me here so you can decide if you prefer another route.</p>
+
+<p>I initially had planned to run the cluster on four second hand SuperMicro servers, I had been trolling around Ebay for some time keeping an eye out for someone unloading a bunch of cheap hardware. I came close a few times to pulling the trigger, but I couldn&rsquo;t justify spending ~$1000 for something that ultimately would sit idle most of the time. This would also mean that the servers sitting idle are still draining a fair amount of power. I&rsquo;m ok with my server I use as a hosting point for NAS, Plex, Home Assistant, and a few other things, but multiplying that seemed way too much overkill.</p>
+
+<p>I had also thought about just running the cluster inside my server. It is a pretty beefy box with 32GB of ECC memory, and 24 available cores (two six core Xeons with HyperThreading) but it is old hardware, and I frequently dick around with it and didn&rsquo;t want the extra VMs hogging resources. It also just wasn&rsquo;t as appealing as getting new hardware for some reason, probably because buying new stuff and putting it together is always exciting to me.</p>
+
+<p>Finally I came around to the idea of running a k8s cluster on Raspberry Pis. I always shied away from the idea as they are only carrying 1GB of memory, but after hearing of some folks running it and being happy with it I started digging a bit deeper. I had gone as far on this as actually gathering a list of things to get, and the total came out to a meager $300 for a five node cluster, for everything except the cases which I planned to 3D print. Here is what I had for reference.</p>
+
+<p>RPi BoM:</p>
+
+<table>
+<thead>
+<tr>
+<th>Part</th>
+<th>Link</th>
+<th>Qty</th>
+<th>Price</th>
+<th>Total</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>RPi 3</td>
+<td><a href="https://smile.amazon.com/Raspberry-Pi-RASPBERRYPI3-MODB-1GB-Model-Motherboard/dp/B01CD5VC92/">Amazon</a></td>
+<td>5</td>
+<td>$36.37</td>
+<td>$181.85</td>
+</tr>
+
+<tr>
+<td>Anker PowerPort6</td>
+<td><a href="https://smile.amazon.com/Anker-6-Port-Charger-PowerPort-iPhone/dp/B00P936188/">Amazon</a></td>
+<td>1</td>
+<td>$27.99</td>
+<td>$27.99</td>
+</tr>
+
+<tr>
+<td>SD Card</td>
+<td><a href="https://smile.amazon.com/Samsung-Class-Micro-Adapter-MB-MC32DA/dp/B00WR4IJBE/">Amazon</a></td>
+<td>5</td>
+<td>$14.99</td>
+<td>$74.95</td>
+</tr>
+
+<tr>
+<td>USB cables for power</td>
+<td><a href="https://smile.amazon.com/Fasgear-Gold-Plated-Navy-Blue-Connector-Colorful/dp/B019RK5NLE/">Amazon</a></td>
+<td>1</td>
+<td>$10.99</td>
+<td>$10.99</td>
+</tr>
+
+<tr>
+<td>Heatsink kit</td>
+<td><a href="https://smile.amazon.com/Raspberry-Heatsink-iUniker-Aluminum-Conductive/dp/B076ZH6X9L/">Amazon</a></td>
+<td>1</td>
+<td>$7.99</td>
+<td>$7.99</td>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>$303.77</td>
+</tr>
+</tbody>
+</table>
+
+<p>So for just a tad over $300, you get a five node k8s cluster! I was pretty hot on this and ready to pull the trigger. Before I did though I started researching RPi clones to see if any were offering something comparable. I came across ODROID, they have several models to offer, varying in price range, but I ultimately set my eye on the HC2 (Home Cloud 2). This was a trimmed down version of the XU4, it packs an 8 core big.LITTLE Samsung cpu (4x2.0ghz and 4x1.2ghz) which is an older SoC that was pretty commonly found in phones. It is pretty bare bones, with no GPU, and only one USB, ethernet, and a power connection on the &ldquo;front&rdquo;, and a SATA3 port on the back, yes, a full SATA3 port! It also comes strapped to a case that acts as a big heatsink, which is stackable, so bonus there. It is a bit more expensive, and a bit more work to get it running the way I decided to go, but here is the list for the ODROID.</p>
+
+<p>ODROID BoM:</p>
+
+<table>
+<thead>
+<tr>
+<th>Part</th>
+<th>Link</th>
+<th>Qty</th>
+<th>Price</th>
+<th>Total</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>ODROID HC2</td>
+<td><a href="https://odroidinc.com/collections/odroid-single-board-computers/products/odroid-hc2-home-cloud-two">odroidinc</a></td>
+<td>5</td>
+<td>$54.00</td>
+<td>$270.00</td>
+</tr>
+
+<tr>
+<td>DC plug</td>
+<td><a href="https://odroidinc.com/products/dc-plug-cable-assembly-5-5mm">odroidinc</a></td>
+<td>5</td>
+<td>$1.25</td>
+<td>6.25</td>
+</tr>
+
+<tr>
+<td>SD Card</td>
+<td><a href="https://smile.amazon.com/Samsung-Class-Micro-Adapter-MB-MC32DA/dp/B00WR4IJBE/">Amazon</a></td>
+<td>5</td>
+<td>$14.99</td>
+<td>$74.95</td>
+</tr>
+
+<tr>
+<td>12v 15A DC bench supply</td>
+<td><a href="https://smile.amazon.com/gp/product/B076D8B4NL/">Amazon</a></td>
+<td>1</td>
+<td>$15.99</td>
+<td>$15.99</td>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>$367.19</td>
+</tr>
+</tbody>
+</table>
+
+<p>Now, the catch here is that I&rsquo;ll need to wire up the plugs to the power supply, but being no stranger to these things it doesn&rsquo;t present a problem for me, but keep it in mind! You can always buy a bunch of their power bricks for $7 instead.</p>
+
+<p>So for a difference of $63 I am getting double the cores, faster cores, double the memory, and a full SATA port I can add storage to later. The pick seemed obvious to me, so I pulled the trigger and am anxiously awaiting my cluster to arrive.</p>
+
+<p>I should note as well that I don&rsquo;t bundle a switch, or anything outside getting the cluster powered up because I already have all of the infrastructure in place. So don&rsquo;t forget to include that if you don&rsquo;t have it.</p>
+
+<h1 id="bonus-round">Bonus round</h1>
+
+<p>With this setup, I had to ditch my idea of a tower of Pi which was going to have a fan as well to get some active cooling in there. With the HC2s having basically a giant heatsink wrapping them, and they stack, I don&rsquo;t need to print a tower out, but I do still want to add a fan or two for active cooling. So once the parts come in I plan to design a &ldquo;case&rdquo; for the tower and supply to stay together as one unit, I&rsquo;ll link to it when I&rsquo;ve got it up.</p>
+
+<p>This also presents a small challenge of installing Ubuntu, thankfully you can flash a pre baked image onto the SD card, and just wait for it to come online. From there I&rsquo;ll assign it an IP in my router so we can leave it DHCP but it will always get the same IP, and have a <code>.local</code> name. I&rsquo;ll post more details about this when we get there.</p>
+
+<p>Link to <a href="/post/2018/home-kubernetes-cluster-using-odroid-hc2-boards-part-2">Part 2</a></p>
+ </div>
+    <footer class="post-footer">
+
+  <div class="post-footer-data">
+    
+<div class="tags">
+    
+      <div class="tag">
+        <a href="/tags/kubernetes">#kubernetes</a>
+      </div>
+    
+      <div class="tag">
+        <a href="/tags/devops">#devops</a>
+      </div>
+    
+      <div class="tag">
+        <a href="/tags/cloud">#cloud</a>
+      </div>
+    
+      <div class="tag">
+        <a href="/tags/home-cloud">#home cloud</a>
+      </div>
+    
+      <div class="tag">
+        <a href="/tags/raspberry-pi">#raspberry pi</a>
+      </div>
+    
+      <div class="tag">
+        <a href="/tags/rpi">#rpi</a>
+      </div>
+    
+</div>
+
+    <div class="date"> Feb 12, 2018 </div>
+  </div>
+
+</footer>
+
+
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "blog-heschlie-com" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</article>
+
+  <footer>
+
+  <div class="social-links-footer">
+
+  
+  <a href="mailto:heschlie@gmail.com"><div class="social-link">Email</div></a>
+  
+
+  
+  <a href="https://github.com/heschlie" target="_blank"><div class="social-link">GitHub</div></a>
+  
+
+  
+
+  
+  <a href="https://twitter.com/heschlie" target="_blank"><div class="social-link">Twitter</div></a>
+  
+
+  
+  <a href="https://www.linkedin.com/in/heschlie" target="_blank"><div class="social-link">LinkedIn</div></a>
+  
+
+  <div class="social-link">
+  <a href="https://blog.heschlie.com/index.xml" target="_blank">RSS</a>
+  </div>
+
+</div>
+
+
+  <div class="copyright">  </div>
+
+  <div class="poweredby">
+    Powered by <a href="https://gohugo.io/">Hugo</a>.
+  </div>
+
+  </footer>
+
+</div> 
+
+</body>
+</html>
+
